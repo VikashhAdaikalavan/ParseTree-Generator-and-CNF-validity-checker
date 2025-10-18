@@ -422,6 +422,20 @@ class CNFConverter{
         else return false;
     }
 
+    int nonvalidclause_no()
+    {
+        int no_of_clauses = 0;
+        string s = "";
+        treeToString(roottree,s);
+        string token;
+        stringstream ss(s);
+        while(getline(ss,token,'*'))
+        {
+            no_of_clauses++;
+        }
+        return no_of_clauses-validclause_no();
+    }
+
     int validclause_no()
     {
         int ans = 0;
@@ -477,7 +491,7 @@ int main()
 {
 
     vector<string> tests = {
-        "(p>q)*(q>q)"
+        "(p>q)*(q>q)*(r+s+(~s))"
     };
 
     for(string i : tests)
@@ -489,10 +503,11 @@ int main()
         converter.cnf();
         t.printtree(converter.roottree);
         cout<< endl;
-        if(converter.checkvalid()) cout << "Valid";
-        else cout << "Not Valid";
+        if(converter.checkvalid()) cout << "Valid Formula";
+        else cout << "Not Valid Formula";
         cout<<endl;
         cout<<"No of valid clause = " << converter.validclause_no()<<endl;
+        cout<<"No of invalid clause= "<< converter.nonvalidclause_no()<<endl;
         cout<<endl;
     }
     return 0;

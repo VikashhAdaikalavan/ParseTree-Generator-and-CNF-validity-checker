@@ -44,7 +44,7 @@ int cnf_validcno(string filepath)
             no = stoi(token);
             if(no==0)
             {
-                break;
+                continue;
             }
             else
             {
@@ -64,6 +64,34 @@ int cnf_validcno(string filepath)
     f.close();
 
     return valid_clause_no;
+
+}
+
+int cnf_non_valid_cno(string filepath)
+{
+    ifstream f(filepath);
+
+    if(!f.is_open())
+    {
+        cout<<"File is not opened";
+        return -1;
+    }
+
+    string line;
+    string token;
+    while(getline(f,line))
+    {
+        if(line[0] == 'p') break;
+    }
+    stringstream ss(line);
+    getline(ss,token,' ');
+    getline(ss,token,' ');
+    getline(ss,token,' ');
+    int var_no = stoi(token);
+    getline(ss,token,' ');
+    int clause_no = stoi(token);
+    int no;
+    return clause_no-cnf_validcno(filepath);
 
 }
 
@@ -104,4 +132,5 @@ int main()
     if(ans == true) cout<<"Valid" << endl;
     else cout<< "Invalid"<< endl;
     cout<< "No of valid clauses: " << n << endl;
+    cout<< "No of invalid clauses: " << cnf_non_valid_cno(path)<<endl;
 }
