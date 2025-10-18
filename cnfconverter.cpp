@@ -2,10 +2,13 @@
 #include "infixtoprefix.hpp"
 #include <algorithm>
 #include <ctype.h>
-#include <unordered_map>
+#include <map>
 #include <vector>
 #include <sstream>
 #include <set>
+#include <bitset>
+#include <cstdlib>
+
 using namespace std;
 
 class Treenode
@@ -102,35 +105,42 @@ class valuecomputer
 {
     public :
     Treenode* root;
-    unordered_map<char,int> atomvals;
+    map<char,int> atomvals;
+    map<char,int> atomvals_temp;
 
-    valuecomputer(Treenode* r,unordered_map<char,int> d)
+    valuecomputer(Treenode* r,map<char,int> d)
     {
         root = r;
         atomvals = d;
+        atomvals_temp = d;
     }
 
-    void assignatoms(Treenode* node)
+    void assignatoms(Treenode* node,map<char,int> &atomval)
     {
         if(node ->left == nullptr && node ->right == nullptr)
         {
-            node->truthvalue = atomvals[node->nodeval];
+            node->truthvalue = atomval[node->nodeval];
             return ;
         }
         else if(node->nodeval == '~')
         {
-            assignatoms(node->right);
+            assignatoms(node->right,atomval);
         }
         else
         {
-            assignatoms(node->left);
-            assignatoms(node->right);
+            assignatoms(node->left,atomval);
+            assignatoms(node->right,atomval);
         }
     }
 
     int computetruth()
     {
-        assignatoms(root);
+        assignatoms(root,atomvals);
+        return computetruth(root);
+    }
+    int computetruth(map<char,int> atomval)
+    {
+        assignatoms(root,atomval);
         return computetruth(root);
     }
 
@@ -148,7 +158,7 @@ class valuecomputer
         }
         else if(node-> nodeval == '>')
         {
-            node->truthvalue = (~computetruth(node->left))|computetruth(node->right);
+            node->truthvalue = (!computetruth(node->left))|computetruth(node->right);
             return node->truthvalue;
         }
         else if(node->nodeval == '~')
@@ -162,21 +172,47 @@ class valuecomputer
         }
 
     }
+
+    void computealltruth()
+    {
+        vector<char> v;
+        for(auto k: atomvals)
+        {
+            v.push_back(k.first);
+            cout << k.first;
+        }
+        cout<<" Truth value"<<endl;
+        int n = 1<< atomvals.size();
+        for(int i = 0; i<n; i++)
+        {
+            bitset<64> bits(i);
+            string bitstring = bits.to_string().substr(64-atomvals.size());
+            cout << bitstring << " ";
+            for(int j = 0; j<atomvals.size();j++)
+            {
+                atomvals_temp[v[j]] = bitstring[j]-'0';
+            } 
+            cout << computetruth(atomvals_temp)<<endl;
+
+        }
+    }
 };
 
 
-// int main()
-// {
-//     Parsetree t(infixtoprefix("(~((a+b)*(c+d)))"));
-//     t.printtree();
-//     cout<< endl;
-//     cout<< t.height();
-//     unordered_map<char,int> mpp = {{'a',1},{'b',0},{'c',0},{'d',0}};
-//     valuecomputer vc(t.root,mpp);
-//     cout<< endl;
-//     cout << vc.computetruth();
-//     return 0;
-// }
+
+int main()
+{
+    Parsetree t(infixtoprefix("(a>b)*(q>r)"));
+    t.printtree();
+    cout<< endl;
+    cout<< t.height();
+    map<char,int> mpp = {{'a',1},{'b',0},{'q',1},{'r',0}};
+    valuecomputer vc(t.root,mpp);
+    cout<< endl;
+    cout << vc.computetruth()<<endl;
+    vc.computealltruth();
+    return 0;
+}
 
 
 
@@ -423,31 +459,31 @@ class CNFConverter{
     }
 };
 
-int main()
-{
+// int main()
+// {
 
-    vector<string> tests = {
-        "A",
-        "(~A)",
-        "(A>A)",
-        "((A>B)*(B>C))",
-        "(A+((~(A))*C))"
-    };
+//     vector<string> tests = {
+//         "A",
+//         "(~A)",
+//         "(A>A)",
+//         "((A>B)*(B>C))",
+//         "(A+((~(A))*C))"
+//     };
 
-    for(string i : tests)
-    {
-        Parsetree t(infixtoprefix(i));
-        t.printtree();
-        cout<< endl;
-        CNFConverter converter(i);
-        converter.cnf();
-        t.printtree(converter.roottree);
-        cout<< endl;
-        if(converter.checkvaid()) cout << "Valid";
-        else cout << "Not Valid";
-        cout<<endl;
-        cout<<endl;
-    }
-    return 0;
-}
+//     for(string i : tests)
+//     {
+//         Parsetree t(infixtoprefix(i));
+//         t.printtree();
+//         cout<< endl;
+//         CNFConverter converter(i);
+//         converter.cnf();
+//         t.printtree(converter.roottree);
+//         cout<< endl;
+//         if(converter.checkvaid()) cout << "Valid";
+//         else cout << "Not Valid";
+//         cout<<endl;
+//         cout<<endl;
+//     }
+//     return 0;
+// }
 
