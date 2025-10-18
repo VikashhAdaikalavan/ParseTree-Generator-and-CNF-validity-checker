@@ -373,7 +373,7 @@ class CNFConverter{
 
     bool checkvaid()
     {
-        bool validity = false;
+        bool validity = true;
         string s = "";
         treeToString(roottree,s);
         cout<<s;
@@ -410,9 +410,9 @@ class CNFConverter{
             }
             for (auto &lit : snormal)
             {
-                if (snegated.find(lit) != snegated.end())
+                if (snegated.find(lit) == snegated.end())
                 {
-                    validity = true; 
+                    validity = false; 
                     break;
                 }
             
