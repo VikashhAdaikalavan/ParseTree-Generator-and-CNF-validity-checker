@@ -200,19 +200,19 @@ class valuecomputer
 
 
 
-int main()
-{
-    Parsetree t(infixtoprefix("(a>b)*(q>r)"));
-    t.printtree();
-    cout<< endl;
-    cout<< t.height();
-    map<char,int> mpp = {{'a',1},{'b',0},{'q',1},{'r',0}};
-    valuecomputer vc(t.root,mpp);
-    cout<< endl;
-    cout << vc.computetruth()<<endl;
-    vc.computealltruth();
-    return 0;
-}
+// int main()
+// {
+//     Parsetree t(infixtoprefix("(a>b)*(q>r)"));
+//     t.printtree();
+//     cout<< endl;
+//     cout<< t.height();
+//     map<char,int> mpp = {{'a',1},{'b',0},{'q',1},{'r',0}};
+//     valuecomputer vc(t.root,mpp);
+//     cout<< endl;
+//     cout << vc.computetruth()<<endl;
+//     vc.computealltruth();
+//     return 0;
+// }
 
 
 
@@ -407,9 +407,24 @@ class CNFConverter{
         }
     }
 
-    bool checkvaid()
+    bool checkvalid()
     {
-        bool validity = true;
+        int no_of_clauses = 0;
+        string s = "";
+        treeToString(roottree,s);
+        string token;
+        stringstream ss(s);
+        while(getline(ss,token,'*'))
+        {
+            no_of_clauses++;
+        }
+        if(validclause_no() == no_of_clauses) return true;
+        else return false;
+    }
+
+    int validclause_no()
+    {
+        int ans = 0;
         string s = "";
         treeToString(roottree,s);
         cout<<s;
@@ -446,44 +461,40 @@ class CNFConverter{
             }
             for (auto &lit : snormal)
             {
-                if (snegated.find(lit) == snegated.end())
+                if (snegated.find(lit) != snegated.end())
                 {
-                    validity = false; 
+                    ans++;
                     break;
                 }
             
             }
         }
-
-        return validity;
+        return ans;
     }
 };
 
-// int main()
-// {
+int main()
+{
 
-//     vector<string> tests = {
-//         "A",
-//         "(~A)",
-//         "(A>A)",
-//         "((A>B)*(B>C))",
-//         "(A+((~(A))*C))"
-//     };
+    vector<string> tests = {
+        "(p>q)*(q>q)"
+    };
 
-//     for(string i : tests)
-//     {
-//         Parsetree t(infixtoprefix(i));
-//         t.printtree();
-//         cout<< endl;
-//         CNFConverter converter(i);
-//         converter.cnf();
-//         t.printtree(converter.roottree);
-//         cout<< endl;
-//         if(converter.checkvaid()) cout << "Valid";
-//         else cout << "Not Valid";
-//         cout<<endl;
-//         cout<<endl;
-//     }
-//     return 0;
-// }
+    for(string i : tests)
+    {
+        Parsetree t(infixtoprefix(i));
+        t.printtree();
+        cout<< endl;
+        CNFConverter converter(i);
+        converter.cnf();
+        t.printtree(converter.roottree);
+        cout<< endl;
+        if(converter.checkvalid()) cout << "Valid";
+        else cout << "Not Valid";
+        cout<<endl;
+        cout<<"No of valid clause = " << converter.validclause_no()<<endl;
+        cout<<endl;
+    }
+    return 0;
+}
 
