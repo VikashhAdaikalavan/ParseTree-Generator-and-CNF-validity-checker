@@ -98,9 +98,17 @@ $(function(){initNavTree('classvaluecomputer.html','','classvaluecomputer-member
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a621e029fd3a8ac0c24a7ecc3c3f83197" id="r_a621e029fd3a8ac0c24a7ecc3c3f83197"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a621e029fd3a8ac0c24a7ecc3c3f83197">valuecomputer</a> (<a class="el" href="class_treenode.html">Treenode</a> *r, map&lt; char, int &gt; d)</td></tr>
-<tr class="memdesc:a621e029fd3a8ac0c24a7ecc3c3f83197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for valuecomputer.  <br /></td></tr>
+<tr class="memdesc:a621e029fd3a8ac0c24a7ecc3c3f83197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for valuecomputer with variable assignments.  <br /></td></tr>
+<tr class="memitem:ad4b70b321ce1c2dd76b3532e769255bb" id="r_ad4b70b321ce1c2dd76b3532e769255bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4b70b321ce1c2dd76b3532e769255bb">valuecomputer</a> (<a class="el" href="class_treenode.html">Treenode</a> *r)</td></tr>
+<tr class="memdesc:ad4b70b321ce1c2dd76b3532e769255bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for valuecomputer without initial variable assignments.  <br /></td></tr>
+<tr class="memitem:ac9a1aea8f1a05088177ebc6dac88a779" id="r_ac9a1aea8f1a05088177ebc6dac88a779"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9a1aea8f1a05088177ebc6dac88a779">calc_no_of_atoms</a> (<a class="el" href="class_treenode.html">Treenode</a> *node, set&lt; char &gt; &amp;atomset)</td></tr>
+<tr class="memdesc:ac9a1aea8f1a05088177ebc6dac88a779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects all unique variables (atoms) present in the parse tree.  <br /></td></tr>
+<tr class="memitem:a099994ce08d90d76a4213b80cb49a313" id="r_a099994ce08d90d76a4213b80cb49a313"><td class="memItemLeft" align="right" valign="top">set&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a099994ce08d90d76a4213b80cb49a313">calc_no_of_atoms</a> ()</td></tr>
+<tr class="memdesc:a099994ce08d90d76a4213b80cb49a313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates and returns all unique variables in the formula.  <br /></td></tr>
 <tr class="memitem:a8455f7b45b2da6f18f719367ced45248" id="r_a8455f7b45b2da6f18f719367ced45248"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8455f7b45b2da6f18f719367ced45248">assignatoms</a> (<a class="el" href="class_treenode.html">Treenode</a> *node, map&lt; char, int &gt; &amp;atomval)</td></tr>
 <tr class="memdesc:a8455f7b45b2da6f18f719367ced45248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns truth values to leaf nodes (variables) in the tree.  <br /></td></tr>
+<tr class="memitem:a118dd8913f09a93a2de412839a0c8974" id="r_a118dd8913f09a93a2de412839a0c8974"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a118dd8913f09a93a2de412839a0c8974">set_atomvals</a> (map&lt; char, int &gt; mpp)</td></tr>
+<tr class="memdesc:a118dd8913f09a93a2de412839a0c8974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the map of the valuecomputer to a give state.  <br /></td></tr>
 <tr class="memitem:aa6d70356a3c1abe4fef2d86bf021c94a" id="r_aa6d70356a3c1abe4fef2d86bf021c94a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6d70356a3c1abe4fef2d86bf021c94a">computetruth</a> ()</td></tr>
 <tr class="memdesc:aa6d70356a3c1abe4fef2d86bf021c94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes truth value using original variable assignments.  <br /></td></tr>
 <tr class="memitem:a3f44a1b74dd5ac3c5179b8d475fffd7c" id="r_a3f44a1b74dd5ac3c5179b8d475fffd7c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f44a1b74dd5ac3c5179b8d475fffd7c">computetruth</a> (map&lt; char, int &gt; atomval)</td></tr>
@@ -118,13 +126,15 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a396946451edefdb9943a999b9de39cf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Original variable assignments.  <br /></td></tr>
 <tr class="memitem:a6e57e4f073b765e8e7cfe0386ccbd91d" id="r_a6e57e4f073b765e8e7cfe0386ccbd91d"><td class="memItemLeft" align="right" valign="top">map&lt; char, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e57e4f073b765e8e7cfe0386ccbd91d">atomvals_temp</a></td></tr>
 <tr class="memdesc:a6e57e4f073b765e8e7cfe0386ccbd91d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary variable assignments for truth table.  <br /></td></tr>
+<tr class="memitem:acec7e0e6709eeee366ada03838677c14" id="r_acec7e0e6709eeee366ada03838677c14"><td class="memItemLeft" align="right" valign="top">set&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acec7e0e6709eeee366ada03838677c14">atomslist</a></td></tr>
+<tr class="memdesc:acec7e0e6709eeee366ada03838677c14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set of unique variables in the logic formula.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Computes truth values of propositional formulas. </p>
 <p>Assigns truth values to propositional variables and evaluates the entire formula. Can generate complete truth tables for all possible variable assignments. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a621e029fd3a8ac0c24a7ecc3c3f83197" name="a621e029fd3a8ac0c24a7ecc3c3f83197"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a621e029fd3a8ac0c24a7ecc3c3f83197">&#9670;&#160;</a></span>valuecomputer()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a621e029fd3a8ac0c24a7ecc3c3f83197">&#9670;&#160;</a></span>valuecomputer() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,14 +160,51 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor for valuecomputer. </p>
+<p>Constructor for valuecomputer with variable assignments. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">r</td><td>Pointer to root of parse tree </td></tr>
-    <tr><td class="paramname">d</td><td>Map of variable names to truth values (0 or 1) </td></tr>
+    <tr><td class="paramname">d</td><td>Map of variable names to truth values (0 or 1)</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Initializes the evaluator with a parse tree and predefined truth value assignments for all variables in the formula. </dd></dl>
+
+</div>
+</div>
+<a id="ad4b70b321ce1c2dd76b3532e769255bb" name="ad4b70b321ce1c2dd76b3532e769255bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4b70b321ce1c2dd76b3532e769255bb">&#9670;&#160;</a></span>valuecomputer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">valuecomputer::valuecomputer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_treenode.html">Treenode</a> *</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for valuecomputer without initial variable assignments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>Pointer to root of parse tree</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This constructor automatically discovers all unique variables in the parse tree by calling <a class="el" href="#a099994ce08d90d76a4213b80cb49a313" title="Calculates and returns all unique variables in the formula.">calc_no_of_atoms()</a>. The atomslist member will be populated, but atomvals and atomvals_temp will remain empty until truth values are assigned separately.</dd>
+<dd>
+Use this constructor when you want to analyze the formula structure before assigning specific truth values, or when generating truth tables. </dd></dl>
 
 </div>
 </div>
@@ -198,6 +245,76 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>This traverses the tree and sets truthvalue field for all variables </dd></dl>
+
+</div>
+</div>
+<a id="a099994ce08d90d76a4213b80cb49a313" name="a099994ce08d90d76a4213b80cb49a313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a099994ce08d90d76a4213b80cb49a313">&#9670;&#160;</a></span>calc_no_of_atoms() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">set&lt; char &gt; valuecomputer::calc_no_of_atoms </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates and returns all unique variables in the formula. </p>
+<dl class="section return"><dt>Returns</dt><dd>set&lt;char&gt; Set containing all unique variable names (atoms) in sorted order</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Using set provides automatic duplicate handling and maintains sorted order. The set is stored as a class member for potential reuse. </dd></dl>
+
+</div>
+</div>
+<a id="ac9a1aea8f1a05088177ebc6dac88a779" name="ac9a1aea8f1a05088177ebc6dac88a779"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9a1aea8f1a05088177ebc6dac88a779">&#9670;&#160;</a></span>calc_no_of_atoms() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void valuecomputer::calc_no_of_atoms </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_treenode.html">Treenode</a> *</td>          <td class="paramname"><span class="paramname"><em>node</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">set&lt; char &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>atomset</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Collects all unique variables (atoms) present in the parse tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>Current node being traversed in the parse tree </td></tr>
+    <tr><td class="paramname">atomslist</td><td>Reference to vector that will store unique variable names</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function performs a recursive traversal of the parse tree to identify all leaf nodes (variables). Using a set ensures automatic handling of duplicates with O(log n) insertion time.</dd>
+<dd>
+The function treats leaf nodes (nodes with no children) as atoms/variables and internal nodes as operators that are not added to the list. </dd></dl>
 
 </div>
 </div>
@@ -332,7 +449,57 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a118dd8913f09a93a2de412839a0c8974" name="a118dd8913f09a93a2de412839a0c8974"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a118dd8913f09a93a2de412839a0c8974">&#9670;&#160;</a></span>set_atomvals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void valuecomputer::set_atomvals </td>
+          <td>(</td>
+          <td class="paramtype">map&lt; char, int &gt;</td>          <td class="paramname"><span class="paramname"><em>mpp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the map of the valuecomputer to a give state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mpp</td><td>The map to be assigned to it </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="acec7e0e6709eeee366ada03838677c14" name="acec7e0e6709eeee366ada03838677c14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acec7e0e6709eeee366ada03838677c14">&#9670;&#160;</a></span>atomslist</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">set&lt;char&gt; valuecomputer::atomslist</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set of unique variables in the logic formula. </p>
+
+</div>
+</div>
 <a id="a396946451edefdb9943a999b9de39cf3" name="a396946451edefdb9943a999b9de39cf3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a396946451edefdb9943a999b9de39cf3">&#9670;&#160;</a></span>atomvals</h2>
 

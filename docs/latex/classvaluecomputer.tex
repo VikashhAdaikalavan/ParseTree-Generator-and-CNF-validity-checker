@@ -9,9 +9,17 @@ Computes truth values of propositional formulas.
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classvaluecomputer_a621e029fd3a8ac0c24a7ecc3c3f83197}{valuecomputer}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}r, map$<$ char, int $>$ d)
-\begin{DoxyCompactList}\small\item\em Constructor for valuecomputer. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructor for valuecomputer with variable assignments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvaluecomputer_ad4b70b321ce1c2dd76b3532e769255bb}{valuecomputer}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}r)
+\begin{DoxyCompactList}\small\item\em Constructor for valuecomputer without initial variable assignments. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvaluecomputer_ac9a1aea8f1a05088177ebc6dac88a779}{calc\+\_\+no\+\_\+of\+\_\+atoms}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}node, set$<$ char $>$ \&atomset)
+\begin{DoxyCompactList}\small\item\em Collects all unique variables (atoms) present in the parse tree. \end{DoxyCompactList}\item 
+set$<$ char $>$ \mbox{\hyperlink{classvaluecomputer_a099994ce08d90d76a4213b80cb49a313}{calc\+\_\+no\+\_\+of\+\_\+atoms}} ()
+\begin{DoxyCompactList}\small\item\em Calculates and returns all unique variables in the formula. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classvaluecomputer_a8455f7b45b2da6f18f719367ced45248}{assignatoms}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}node, map$<$ char, int $>$ \&atomval)
 \begin{DoxyCompactList}\small\item\em Assigns truth values to leaf nodes (variables) in the tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvaluecomputer_a118dd8913f09a93a2de412839a0c8974}{set\+\_\+atomvals}} (map$<$ char, int $>$ mpp)
+\begin{DoxyCompactList}\small\item\em Sets the map of the valuecomputer to a give state. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classvaluecomputer_aa6d70356a3c1abe4fef2d86bf021c94a}{computetruth}} ()
 \begin{DoxyCompactList}\small\item\em Computes truth value using original variable assignments. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classvaluecomputer_a3f44a1b74dd5ac3c5179b8d475fffd7c}{computetruth}} (map$<$ char, int $>$ atomval)
@@ -28,7 +36,9 @@ void \mbox{\hyperlink{classvaluecomputer_a1bdc9c2457585c73d42a1e31a569f526}{comp
 map$<$ char, int $>$ \mbox{\hyperlink{classvaluecomputer_a396946451edefdb9943a999b9de39cf3}{atomvals}}
 \begin{DoxyCompactList}\small\item\em Original variable assignments. \end{DoxyCompactList}\item 
 map$<$ char, int $>$ \mbox{\hyperlink{classvaluecomputer_a6e57e4f073b765e8e7cfe0386ccbd91d}{atomvals\+\_\+temp}}
-\begin{DoxyCompactList}\small\item\em Temporary variable assignments for truth table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Temporary variable assignments for truth table. \end{DoxyCompactList}\item 
+set$<$ char $>$ \mbox{\hyperlink{classvaluecomputer_acec7e0e6709eeee366ada03838677c14}{atomslist}}
+\begin{DoxyCompactList}\small\item\em Set of unique variables in the logic formula. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -41,21 +51,44 @@ Assigns truth values to propositional variables and evaluates the entire formula
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classvaluecomputer_a621e029fd3a8ac0c24a7ecc3c3f83197}\index{valuecomputer@{valuecomputer}!valuecomputer@{valuecomputer}}
 \index{valuecomputer@{valuecomputer}!valuecomputer@{valuecomputer}}
-\doxysubsubsection{\texorpdfstring{valuecomputer()}{valuecomputer()}}
+\doxysubsubsection{\texorpdfstring{valuecomputer()}{valuecomputer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \label{classvaluecomputer_a621e029fd3a8ac0c24a7ecc3c3f83197} 
 valuecomputer\+::valuecomputer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{r}{, }\item[{map$<$ char, int $>$}]{d}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Constructor for valuecomputer. 
+Constructor for valuecomputer with variable assignments. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em r} & Pointer to root of parse tree \\
 \hline
-{\em d} & Map of variable names to truth values (0 or 1) \\
+{\em d} & Map of variable names to truth values (0 or 1)\\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+Initializes the evaluator with a parse tree and predefined truth value assignments for all variables in the formula. 
+\end{DoxyNote}
+\Hypertarget{classvaluecomputer_ad4b70b321ce1c2dd76b3532e769255bb}\index{valuecomputer@{valuecomputer}!valuecomputer@{valuecomputer}}
+\index{valuecomputer@{valuecomputer}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{valuecomputer()}{valuecomputer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classvaluecomputer_ad4b70b321ce1c2dd76b3532e769255bb} 
+valuecomputer\+::valuecomputer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for valuecomputer without initial variable assignments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Pointer to root of parse tree\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This constructor automatically discovers all unique variables in the parse tree by calling \doxylink{classvaluecomputer_a099994ce08d90d76a4213b80cb49a313}{calc\+\_\+no\+\_\+of\+\_\+atoms()}. The atomslist member will be populated, but atomvals and atomvals\+\_\+temp will remain empty until truth values are assigned separately.
+
+Use this constructor when you want to analyze the formula structure before assigning specific truth values, or when generating truth tables. 
+\end{DoxyNote}
 
 
 \label{doc-func-members}
@@ -80,6 +113,44 @@ Assigns truth values to leaf nodes (variables) in the tree.
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
 This traverses the tree and sets truthvalue field for all variables 
+\end{DoxyNote}
+\Hypertarget{classvaluecomputer_a099994ce08d90d76a4213b80cb49a313}\index{valuecomputer@{valuecomputer}!calc\_no\_of\_atoms@{calc\_no\_of\_atoms}}
+\index{calc\_no\_of\_atoms@{calc\_no\_of\_atoms}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{calc\_no\_of\_atoms()}{calc\_no\_of\_atoms()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classvaluecomputer_a099994ce08d90d76a4213b80cb49a313} 
+set$<$ char $>$ valuecomputer\+::calc\+\_\+no\+\_\+of\+\_\+atoms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates and returns all unique variables in the formula. 
+
+\begin{DoxyReturn}{Returns}
+set$<$char$>$ Set containing all unique variable names (atoms) in sorted order
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Using set provides automatic duplicate handling and maintains sorted order. The set is stored as a class member for potential reuse. 
+\end{DoxyNote}
+\Hypertarget{classvaluecomputer_ac9a1aea8f1a05088177ebc6dac88a779}\index{valuecomputer@{valuecomputer}!calc\_no\_of\_atoms@{calc\_no\_of\_atoms}}
+\index{calc\_no\_of\_atoms@{calc\_no\_of\_atoms}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{calc\_no\_of\_atoms()}{calc\_no\_of\_atoms()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classvaluecomputer_ac9a1aea8f1a05088177ebc6dac88a779} 
+void valuecomputer\+::calc\+\_\+no\+\_\+of\+\_\+atoms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{set$<$ char $>$ \&}]{atomset}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Collects all unique variables (atoms) present in the parse tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Current node being traversed in the parse tree \\
+\hline
+{\em atomslist} & Reference to vector that will store unique variable names\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function performs a recursive traversal of the parse tree to identify all leaf nodes (variables). Using a set ensures automatic handling of duplicates with O(log n) insertion time.
+
+The function treats leaf nodes (nodes with no children) as atoms/variables and internal nodes as operators that are not added to the list. 
 \end{DoxyNote}
 \Hypertarget{classvaluecomputer_a1bdc9c2457585c73d42a1e31a569f526}\index{valuecomputer@{valuecomputer}!computealltruth@{computealltruth}}
 \index{computealltruth@{computealltruth}!valuecomputer@{valuecomputer}}
@@ -147,11 +218,39 @@ Evaluation rules\+:
 \item IMPLIES (\texorpdfstring{$>$}{>})\+: !left \texorpdfstring{$\vert$}{|} right
 \item NOT (\texorpdfstring{$\sim$}{\string~})\+: !right
 \item Variable\+: assigned truth value 
-\end{DoxyItemize}
+\end{DoxyItemize}\Hypertarget{classvaluecomputer_a118dd8913f09a93a2de412839a0c8974}\index{valuecomputer@{valuecomputer}!set\_atomvals@{set\_atomvals}}
+\index{set\_atomvals@{set\_atomvals}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{set\_atomvals()}{set\_atomvals()}}
+{\footnotesize\ttfamily \label{classvaluecomputer_a118dd8913f09a93a2de412839a0c8974} 
+void valuecomputer\+::set\+\_\+atomvals (\begin{DoxyParamCaption}\item[{map$<$ char, int $>$}]{mpp}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the map of the valuecomputer to a give state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mpp} & The map to be assigned to it \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
 
 \label{doc-variable-members}
 \Hypertarget{classvaluecomputer_doc-variable-members}
 \doxysubsection{Member Data Documentation}
+\Hypertarget{classvaluecomputer_acec7e0e6709eeee366ada03838677c14}\index{valuecomputer@{valuecomputer}!atomslist@{atomslist}}
+\index{atomslist@{atomslist}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{atomslist}{atomslist}}
+{\footnotesize\ttfamily \label{classvaluecomputer_acec7e0e6709eeee366ada03838677c14} 
+set$<$char$>$ valuecomputer\+::atomslist}
+
+
+
+Set of unique variables in the logic formula. 
+
 \Hypertarget{classvaluecomputer_a396946451edefdb9943a999b9de39cf3}\index{valuecomputer@{valuecomputer}!atomvals@{atomvals}}
 \index{atomvals@{atomvals}!valuecomputer@{valuecomputer}}
 \doxysubsubsection{\texorpdfstring{atomvals}{atomvals}}

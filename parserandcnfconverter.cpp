@@ -287,18 +287,91 @@ class valuecomputer
     Treenode* root;                ///< Root of the parse tree to evaluate
     map<char,int> atomvals;        ///< Original variable assignments
     map<char,int> atomvals_temp;   ///< Temporary variable assignments for truth table
-
-    /**
-     * @brief Constructor for valuecomputer
+    set<char> atomslist;         ///< Set of unique variables in the logic formula
+        /**
+     * @brief Constructor for valuecomputer with variable assignments
      * @param r Pointer to root of parse tree
      * @param d Map of variable names to truth values (0 or 1)
+     * 
+     * @note Initializes the evaluator with a parse tree and predefined truth
+     *       value assignments for all variables in the formula.
      */
-    valuecomputer(Treenode* r,map<char,int> d)
+    valuecomputer(Treenode* r, map<char,int> d)
     {
         root = r;
         atomvals = d;
         atomvals_temp = d;
     }
+
+        /**
+     * @brief Constructor for valuecomputer without initial variable assignments
+     * @param r Pointer to root of parse tree
+     * 
+     * @note This constructor automatically discovers all unique variables in
+     *       the parse tree by calling calc_no_of_atoms(). The atomslist member
+     *       will be populated, but atomvals and atomvals_temp will remain empty
+     *       until truth values are assigned separately.
+     * 
+     * @note Use this constructor when you want to analyze the formula structure
+     *       before assigning specific truth values, or when generating truth tables.
+     */
+    valuecomputer(Treenode* r)
+    {
+        root = r;
+        calc_no_of_atoms();
+    }
+
+
+        /**
+     * @brief Collects all unique variables (atoms) present in the parse tree
+     * @param node Current node being traversed in the parse tree
+     * @param atomslist Reference to vector that will store unique variable names
+     * 
+     * @note This function performs a recursive traversal of the parse tree
+     *       to identify all leaf nodes (variables). Using a set ensures
+     *       automatic handling of duplicates with O(log n) insertion time.
+     * 
+     * @note The function treats leaf nodes (nodes with no children) as atoms/variables
+     *       and internal nodes as operators that are not added to the list.
+     */
+    void calc_no_of_atoms(Treenode* node, set<char> &atomset)
+    {
+        if(node == nullptr)
+        {
+            return;
+        }
+        
+        // If it's a leaf node (variable/atom)
+        if(node->left == nullptr && node->right == nullptr)
+        {
+            atomset.insert(node->nodeval);  // Set automatically handles duplicates
+            return;
+        }
+        
+        // Recursively traverse left and right subtrees
+        if(node->left != nullptr)
+        {
+            calc_no_of_atoms(node->left, atomset);
+        }
+        if(node->right != nullptr)
+        {
+            calc_no_of_atoms(node->right, atomset);
+        }
+    }
+
+    /**
+     * @brief Calculates and returns all unique variables in the formula
+     * @return set<char> Set containing all unique variable names (atoms) in sorted order
+     * 
+     * @note Using set provides automatic duplicate handling and maintains sorted order.
+     *       The set is stored as a class member for potential reuse.
+     */
+    set<char> calc_no_of_atoms()
+    {
+        calc_no_of_atoms(root, atomslist);
+        return atomslist;
+    }
+
 
     /**
      * @brief Assigns truth values to leaf nodes (variables) in the tree
@@ -323,6 +396,17 @@ class valuecomputer
             assignatoms(node->left,atomval);
             assignatoms(node->right,atomval);
         }
+    }
+
+
+    /**
+     * @brief Sets the map of the valuecomputer to a give state
+     * @param mpp The map to be assigned to it
+     * @return void
+     */
+    void set_atomvals(map<char,int> mpp)
+    {
+        atomvals = mpp;
     }
 
     /**
@@ -398,19 +482,20 @@ class valuecomputer
     void computealltruth()
     {
         vector<char> v;
-        for(auto k: atomvals)
+        calc_no_of_atoms();
+        for(auto k: atomslist)
         {
-            v.push_back(k.first);
-            cout << k.first;
+            v.push_back(k);
+            cout << k;
         }
         cout<<" Truth value"<<endl;
-        int n = 1<< atomvals.size();
+        int n = 1<< atomslist.size();
         for(int i = 0; i<n; i++)
         {
             bitset<64> bits(i);
-            string bitstring = bits.to_string().substr(64-atomvals.size());
+            string bitstring = bits.to_string().substr(64-atomslist.size());
             cout << bitstring << " ";
-            for(int j = 0; j<atomvals.size();j++)
+            for(int j = 0; j<atomslist.size();j++)
             {
                 atomvals_temp[v[j]] = bitstring[j]-'0';
             } 
@@ -806,41 +891,13 @@ class CNFConverter{
 //  */
 
 
-int main()
-{
-
-    cout<< "Enter number of formulas for test"<<endl;
-    int n;
-    cin >> n;
-
-    for(int j = 0; j<n ; j++)
-    {
-        string i;
-        cout<< "Enter Formula: ";
-        cin>> i;
-        Parsetree t(infixtoprefix(i));
-        t.printtree();
-        cout<< endl;
-        CNFConverter converter(i);
-        converter.cnf();
-        t.printtree(converter.roottree);
-        cout<< endl;
-        if(converter.checkvalid()) cout << "Valid Formula";
-        else cout << "Not Valid Formula";
-        cout<<endl;
-        cout<<"No of valid clause = " << converter.validclause_no()<<endl;
-        cout<<"No of invalid clause= "<< converter.nonvalidclause_no()<<endl;
-        cout<<endl;
-    }
-    return 0;
-}
-
 // int main()
 // {
-     
+
 //     cout<< "Enter number of formulas for test"<<endl;
 //     int n;
 //     cin >> n;
+
 //     for(int j = 0; j<n ; j++)
 //     {
 //         string i;
@@ -849,12 +906,51 @@ int main()
 //         Parsetree t(infixtoprefix(i));
 //         t.printtree();
 //         cout<< endl;
-//         cout<< t.height();
-//         map<char,int> mpp = {{'a',1},{'b',0},{'q',1},{'r',0}};
-//         valuecomputer vc(t.root,mpp);
+//         CNFConverter converter(i);
+//         converter.cnf();
+//         t.printtree(converter.roottree);
 //         cout<< endl;
-//         cout << vc.computetruth()<<endl;
-//         vc.computealltruth();
+//         if(converter.checkvalid()) cout << "Valid Formula";
+//         else cout << "Not Valid Formula";
+//         cout<<endl;
+//         cout<<"No of valid clause = " << converter.validclause_no()<<endl;
+//         cout<<"No of invalid clause= "<< converter.nonvalidclause_no()<<endl;
+//         cout<<endl;
 //     }
 //     return 0;
 // }
+
+int main()
+{
+     
+    cout<< "Enter number of formulas for test"<<endl;
+    int n;
+    cin >> n;
+    for(int j = 0; j<n ; j++)
+    {
+        string i;
+        cout<< "Enter Formula: ";
+        cin>> i;
+        Parsetree t(infixtoprefix(i));
+        t.printtree();
+        cout<< endl;
+        cout<< "maxheight is: "<<t.height()<<endl;
+
+        map<char,int> mpp;
+        valuecomputer vc(t.root);
+        set <char> aset = vc.calc_no_of_atoms();
+        for(char i : aset)
+        {
+            int val;
+            cout << "Enter Value(0/1) of "<< i<< ": ";
+            cin >>val;
+            mpp[i] = val;
+        }
+        cout << "The Truth value for the given assignment is = "<<vc.computetruth(mpp)<<endl;
+        cout<< endl;
+        cout<< "Truth Table"<<endl;
+        vc.computealltruth();
+        cout<<endl;
+    }
+    return 0;
+}

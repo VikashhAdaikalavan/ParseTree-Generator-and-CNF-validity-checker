@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['treenode_0',['Treenode',['../class_treenode.html#a27d35944170d2971bc5951a3d508a2b2',1,'Treenode']]],
-  ['treetostring_1',['treeToString',['../class_c_n_f_converter.html#aec2e842fbef3d7319784870fbff22f81',1,'CNFConverter']]]
+  ['set_5fatomvals_0',['set_atomvals',['../classvaluecomputer.html#a118dd8913f09a93a2de412839a0c8974',1,'valuecomputer']]]
 ];
