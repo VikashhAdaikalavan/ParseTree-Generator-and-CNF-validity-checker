@@ -1,26 +1,26 @@
-/* Change the main header bar */
+
 #titlearea {
-    background-color: #336699; /* Put your new color here */
-    border-bottom: 1px solid #1a446c; /* A darker border */
+    background-color: #336699; 
+    border-bottom: 1px solid #1a446c; 
 }
 
-/* Change the navigation tabs (Main Page, Classes, Files) */
+/*navigation tabs (Main Page, Classes, Files) */
 .tabs, .tabs2, .tabs3 {
-    background-image: none; /* Disables the default gradient */
-    background-color: #2a5580; /* A slightly lighter color */
+    background-image: none; 
+    background-color: #2a5580; 
 }
 
-/* Change the color of the active tab */
+/* color of the active tab */
 .tabs2 li.current a {
-    background-color: #336699; /* Same as the main header */
+    background-color: #336699; 
 }
 
-/* Change the link color */
+/* link color */
 a {
-    color: #4A90E2; /* A nice blue */
+    color: #4A90E2; 
 }
 
-/* Change the link color when you hover over it */
+/* link color when you hover over it */
 a:hover {
-    color: #81b3f3; /* A lighter blue */
+    color: #81b3f3;
 }
