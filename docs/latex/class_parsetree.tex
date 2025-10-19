@@ -1,0 +1,179 @@
+\doxysection{Parsetree Class Reference}
+\hypertarget{class_parsetree}{}\label{class_parsetree}\index{Parsetree@{Parsetree}}
+
+
+Builds and manages a parse tree from prefix notation strings.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_parsetree_ae18168f6f907978b7d1e8e74dedb9beb}{Parsetree}} (string s)
+\begin{DoxyCompactList}\small\item\em Constructor that builds a parse tree from prefix notation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_parsetree_a4601237558b76002374a5d94c5e83428}{build\+Tree}} (string s, int \&\mbox{\hyperlink{class_parsetree_a8132b00f5bf7fd47c2d85b21194d7bba}{i}})
+\begin{DoxyCompactList}\small\item\em Recursively builds the parse tree from prefix notation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_parsetree_a45bb4fcc002cdd67cde5fff3dd5b066c}{printtree}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Prints the tree in infix notation with parentheses (private helper) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_parsetree_a998de7f69442ace8e6d681f00f0d1a43}{printtree}} ()
+\begin{DoxyCompactList}\small\item\em Prints the entire tree in infix notation with parentheses. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_parsetree_a2bda25aef5ceaf934158c673fb277f64}{height}} ()
+\begin{DoxyCompactList}\small\item\em Computes the height of the parse tree. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_parsetree_a1b74595cef50200c700c68f398e5229f}{height}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Recursively computes height of subtree (private helper) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_parsetree_a8132b00f5bf7fd47c2d85b21194d7bba}{i}}
+\begin{DoxyCompactList}\small\item\em Index for parsing the prefix string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_parsetree_ae0959b0c98253797ca71118b53076521}{root}} = nullptr
+\begin{DoxyCompactList}\small\item\em Root node of the parse tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Builds and manages a parse tree from prefix notation strings. 
+
+Creates a binary tree representation of a logical formula where\+:
+\begin{DoxyItemize}
+\item Internal nodes are operators
+\item Leaf nodes are propositional variables
+\item Unary operators (\texorpdfstring{$\sim$}{\string~}) have only right child
+\item Binary operators (+, \texorpdfstring{$\ast$}{*}, \texorpdfstring{$>$}{>}) have both children 
+\end{DoxyItemize}
+
+\label{doc-constructors}
+\Hypertarget{class_parsetree_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_parsetree_ae18168f6f907978b7d1e8e74dedb9beb}\index{Parsetree@{Parsetree}!Parsetree@{Parsetree}}
+\index{Parsetree@{Parsetree}!Parsetree@{Parsetree}}
+\doxysubsubsection{\texorpdfstring{Parsetree()}{Parsetree()}}
+{\footnotesize\ttfamily \label{class_parsetree_ae18168f6f907978b7d1e8e74dedb9beb} 
+Parsetree\+::\+Parsetree (\begin{DoxyParamCaption}\item[{string}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor that builds a parse tree from prefix notation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Prefix notation string of the logical formula \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_parsetree_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_parsetree_a4601237558b76002374a5d94c5e83428}\index{Parsetree@{Parsetree}!buildTree@{buildTree}}
+\index{buildTree@{buildTree}!Parsetree@{Parsetree}}
+\doxysubsubsection{\texorpdfstring{buildTree()}{buildTree()}}
+{\footnotesize\ttfamily \label{class_parsetree_a4601237558b76002374a5d94c5e83428} 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} Parsetree\+::build\+Tree (\begin{DoxyParamCaption}\item[{string}]{s}{, }\item[{int \&}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recursively builds the parse tree from prefix notation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Prefix notation string \\
+\hline
+{\em i} & Reference to current parsing index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Treenode\texorpdfstring{$\ast$}{*} Pointer to the constructed subtree
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This uses recursive descent parsing\+:
+\begin{DoxyItemize}
+\item For binary operators\+: builds left then right subtree
+\item For unary NOT\+: builds only right subtree
+\item For variables\+: creates leaf node 
+\end{DoxyItemize}
+\end{DoxyNote}
+\Hypertarget{class_parsetree_a2bda25aef5ceaf934158c673fb277f64}\index{Parsetree@{Parsetree}!height@{height}}
+\index{height@{height}!Parsetree@{Parsetree}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_parsetree_a2bda25aef5ceaf934158c673fb277f64} 
+int Parsetree\+::height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Computes the height of the parse tree. 
+
+\begin{DoxyReturn}{Returns}
+int Height of the tree (number of edges in longest path from root to leaf) 
+\end{DoxyReturn}
+\Hypertarget{class_parsetree_a1b74595cef50200c700c68f398e5229f}\index{Parsetree@{Parsetree}!height@{height}}
+\index{height@{height}!Parsetree@{Parsetree}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_parsetree_a1b74595cef50200c700c68f398e5229f} 
+int Parsetree\+::height (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recursively computes height of subtree (private helper) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Root of subtree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Height of the subtree 
+\end{DoxyReturn}
+\Hypertarget{class_parsetree_a998de7f69442ace8e6d681f00f0d1a43}\index{Parsetree@{Parsetree}!printtree@{printtree}}
+\index{printtree@{printtree}!Parsetree@{Parsetree}}
+\doxysubsubsection{\texorpdfstring{printtree()}{printtree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_parsetree_a998de7f69442ace8e6d681f00f0d1a43} 
+void Parsetree\+::printtree (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints the entire tree in infix notation with parentheses. 
+
+\Hypertarget{class_parsetree_a45bb4fcc002cdd67cde5fff3dd5b066c}\index{Parsetree@{Parsetree}!printtree@{printtree}}
+\index{printtree@{printtree}!Parsetree@{Parsetree}}
+\doxysubsubsection{\texorpdfstring{printtree()}{printtree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_parsetree_a45bb4fcc002cdd67cde5fff3dd5b066c} 
+void Parsetree\+::printtree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints the tree in infix notation with parentheses (private helper) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Current node being printed \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_parsetree_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_parsetree_a8132b00f5bf7fd47c2d85b21194d7bba}\index{Parsetree@{Parsetree}!i@{i}}
+\index{i@{i}!Parsetree@{Parsetree}}
+\doxysubsubsection{\texorpdfstring{i}{i}}
+{\footnotesize\ttfamily \label{class_parsetree_a8132b00f5bf7fd47c2d85b21194d7bba} 
+int Parsetree\+::i}
+
+
+
+Index for parsing the prefix string. 
+
+\Hypertarget{class_parsetree_ae0959b0c98253797ca71118b53076521}\index{Parsetree@{Parsetree}!root@{root}}
+\index{root@{root}!Parsetree@{Parsetree}}
+\doxysubsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily \label{class_parsetree_ae0959b0c98253797ca71118b53076521} 
+\mbox{\hyperlink{class_treenode}{Treenode}}\texorpdfstring{$\ast$}{*} Parsetree\+::root = nullptr}
+
+
+
+Root node of the parse tree. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{parserandcnfconverter_8cpp}{parserandcnfconverter.\+cpp}}\end{DoxyCompactItemize}

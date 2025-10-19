@@ -1,0 +1,189 @@
+\doxysection{valuecomputer Class Reference}
+\hypertarget{classvaluecomputer}{}\label{classvaluecomputer}\index{valuecomputer@{valuecomputer}}
+
+
+Computes truth values of propositional formulas.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvaluecomputer_a621e029fd3a8ac0c24a7ecc3c3f83197}{valuecomputer}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}r, map$<$ char, int $>$ d)
+\begin{DoxyCompactList}\small\item\em Constructor for valuecomputer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvaluecomputer_a8455f7b45b2da6f18f719367ced45248}{assignatoms}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}node, map$<$ char, int $>$ \&atomval)
+\begin{DoxyCompactList}\small\item\em Assigns truth values to leaf nodes (variables) in the tree. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classvaluecomputer_aa6d70356a3c1abe4fef2d86bf021c94a}{computetruth}} ()
+\begin{DoxyCompactList}\small\item\em Computes truth value using original variable assignments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classvaluecomputer_a3f44a1b74dd5ac3c5179b8d475fffd7c}{computetruth}} (map$<$ char, int $>$ atomval)
+\begin{DoxyCompactList}\small\item\em Computes truth value using provided variable assignments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classvaluecomputer_aa738552b38e063b188c8cc76e95cd340}{computetruth}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Recursively evaluates truth value of formula (private helper) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvaluecomputer_a1bdc9c2457585c73d42a1e31a569f526}{computealltruth}} ()
+\begin{DoxyCompactList}\small\item\em Generates and prints complete truth table for the formula. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classvaluecomputer_ac87ec16036d6a3ff225e6361242f0b97}{root}}
+\begin{DoxyCompactList}\small\item\em Root of the parse tree to evaluate. \end{DoxyCompactList}\item 
+map$<$ char, int $>$ \mbox{\hyperlink{classvaluecomputer_a396946451edefdb9943a999b9de39cf3}{atomvals}}
+\begin{DoxyCompactList}\small\item\em Original variable assignments. \end{DoxyCompactList}\item 
+map$<$ char, int $>$ \mbox{\hyperlink{classvaluecomputer_a6e57e4f073b765e8e7cfe0386ccbd91d}{atomvals\+\_\+temp}}
+\begin{DoxyCompactList}\small\item\em Temporary variable assignments for truth table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes truth values of propositional formulas. 
+
+Assigns truth values to propositional variables and evaluates the entire formula. Can generate complete truth tables for all possible variable assignments. 
+
+\label{doc-constructors}
+\Hypertarget{classvaluecomputer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvaluecomputer_a621e029fd3a8ac0c24a7ecc3c3f83197}\index{valuecomputer@{valuecomputer}!valuecomputer@{valuecomputer}}
+\index{valuecomputer@{valuecomputer}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{valuecomputer()}{valuecomputer()}}
+{\footnotesize\ttfamily \label{classvaluecomputer_a621e029fd3a8ac0c24a7ecc3c3f83197} 
+valuecomputer\+::valuecomputer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{r}{, }\item[{map$<$ char, int $>$}]{d}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for valuecomputer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Pointer to root of parse tree \\
+\hline
+{\em d} & Map of variable names to truth values (0 or 1) \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classvaluecomputer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvaluecomputer_a8455f7b45b2da6f18f719367ced45248}\index{valuecomputer@{valuecomputer}!assignatoms@{assignatoms}}
+\index{assignatoms@{assignatoms}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{assignatoms()}{assignatoms()}}
+{\footnotesize\ttfamily \label{classvaluecomputer_a8455f7b45b2da6f18f719367ced45248} 
+void valuecomputer\+::assignatoms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{map$<$ char, int $>$ \&}]{atomval}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Assigns truth values to leaf nodes (variables) in the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Current node being processed \\
+\hline
+{\em atomval} & Map of variable assignments\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This traverses the tree and sets truthvalue field for all variables 
+\end{DoxyNote}
+\Hypertarget{classvaluecomputer_a1bdc9c2457585c73d42a1e31a569f526}\index{valuecomputer@{valuecomputer}!computealltruth@{computealltruth}}
+\index{computealltruth@{computealltruth}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{computealltruth()}{computealltruth()}}
+{\footnotesize\ttfamily \label{classvaluecomputer_a1bdc9c2457585c73d42a1e31a569f526} 
+void valuecomputer\+::computealltruth (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates and prints complete truth table for the formula. 
+
+Iterates through all possible truth value assignments for variables and prints the resulting truth value of the formula for each assignment. Uses binary counting to generate all 2\texorpdfstring{$^\wedge$}{\string^}n combinations where n is the number of variables. \Hypertarget{classvaluecomputer_aa6d70356a3c1abe4fef2d86bf021c94a}\index{valuecomputer@{valuecomputer}!computetruth@{computetruth}}
+\index{computetruth@{computetruth}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{computetruth()}{computetruth()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classvaluecomputer_aa6d70356a3c1abe4fef2d86bf021c94a} 
+int valuecomputer\+::computetruth (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Computes truth value using original variable assignments. 
+
+\begin{DoxyReturn}{Returns}
+int Truth value of the formula (0 or 1) 
+\end{DoxyReturn}
+\Hypertarget{classvaluecomputer_a3f44a1b74dd5ac3c5179b8d475fffd7c}\index{valuecomputer@{valuecomputer}!computetruth@{computetruth}}
+\index{computetruth@{computetruth}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{computetruth()}{computetruth()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classvaluecomputer_a3f44a1b74dd5ac3c5179b8d475fffd7c} 
+int valuecomputer\+::computetruth (\begin{DoxyParamCaption}\item[{map$<$ char, int $>$}]{atomval}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Computes truth value using provided variable assignments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em atomval} & Map of variable assignments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Truth value of the formula (0 or 1) 
+\end{DoxyReturn}
+\Hypertarget{classvaluecomputer_aa738552b38e063b188c8cc76e95cd340}\index{valuecomputer@{valuecomputer}!computetruth@{computetruth}}
+\index{computetruth@{computetruth}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{computetruth()}{computetruth()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classvaluecomputer_aa738552b38e063b188c8cc76e95cd340} 
+int valuecomputer\+::computetruth (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recursively evaluates truth value of formula (private helper) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Current node being evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Truth value at this node (0 or 1)
+\end{DoxyReturn}
+Evaluation rules\+:
+\begin{DoxyItemize}
+\item OR (+)\+: left \texorpdfstring{$\vert$}{|} right
+\item AND (\texorpdfstring{$\ast$}{*})\+: left \& right
+\item IMPLIES (\texorpdfstring{$>$}{>})\+: !left \texorpdfstring{$\vert$}{|} right
+\item NOT (\texorpdfstring{$\sim$}{\string~})\+: !right
+\item Variable\+: assigned truth value 
+\end{DoxyItemize}
+
+\label{doc-variable-members}
+\Hypertarget{classvaluecomputer_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classvaluecomputer_a396946451edefdb9943a999b9de39cf3}\index{valuecomputer@{valuecomputer}!atomvals@{atomvals}}
+\index{atomvals@{atomvals}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{atomvals}{atomvals}}
+{\footnotesize\ttfamily \label{classvaluecomputer_a396946451edefdb9943a999b9de39cf3} 
+map$<$char,int$>$ valuecomputer\+::atomvals}
+
+
+
+Original variable assignments. 
+
+\Hypertarget{classvaluecomputer_a6e57e4f073b765e8e7cfe0386ccbd91d}\index{valuecomputer@{valuecomputer}!atomvals\_temp@{atomvals\_temp}}
+\index{atomvals\_temp@{atomvals\_temp}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{atomvals\_temp}{atomvals\_temp}}
+{\footnotesize\ttfamily \label{classvaluecomputer_a6e57e4f073b765e8e7cfe0386ccbd91d} 
+map$<$char,int$>$ valuecomputer\+::atomvals\+\_\+temp}
+
+
+
+Temporary variable assignments for truth table. 
+
+\Hypertarget{classvaluecomputer_ac87ec16036d6a3ff225e6361242f0b97}\index{valuecomputer@{valuecomputer}!root@{root}}
+\index{root@{root}!valuecomputer@{valuecomputer}}
+\doxysubsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily \label{classvaluecomputer_ac87ec16036d6a3ff225e6361242f0b97} 
+\mbox{\hyperlink{class_treenode}{Treenode}}\texorpdfstring{$\ast$}{*} valuecomputer\+::root}
+
+
+
+Root of the parse tree to evaluate. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{parserandcnfconverter_8cpp}{parserandcnfconverter.\+cpp}}\end{DoxyCompactItemize}

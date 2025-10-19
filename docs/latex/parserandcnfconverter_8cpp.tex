@@ -1,0 +1,136 @@
+\doxysection{parserandcnfconverter.\+cpp File Reference}
+\hypertarget{parserandcnfconverter_8cpp}{}\label{parserandcnfconverter_8cpp}\index{parserandcnfconverter.cpp@{parserandcnfconverter.cpp}}
+
+
+Propositional Logic Formula to CNF (Conjunctive Normal Form) Converter.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$bitset$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_treenode}{Treenode}}
+\begin{DoxyCompactList}\small\item\em Represents a node in the parse tree for propositional formulas. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_parsetree}{Parsetree}}
+\begin{DoxyCompactList}\small\item\em Builds and manages a parse tree from prefix notation strings. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classvaluecomputer}{valuecomputer}}
+\begin{DoxyCompactList}\small\item\em Computes truth values of propositional formulas. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_c_n_f_converter}{CNFConverter}}
+\begin{DoxyCompactList}\small\item\em Converts propositional logic formulas to Conjunctive Normal Form (CNF) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{parserandcnfconverter_8cpp_a5be4a6363372599206393751e32ce912}{infixtoprefix}} (string s)
+\begin{DoxyCompactList}\small\item\em Converts a fully parenthesized infix formula to prefix notation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{parserandcnfconverter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function to test CNF conversion and validation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Propositional Logic Formula to CNF (Conjunctive Normal Form) Converter. 
+
+\begin{DoxyAuthor}{Author}
+K Vikashh Adaikalavan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025
+\end{DoxyDate}
+This program converts propositional logic formulas from infix notation to CNF form. It builds parse trees, evaluates truth values, and validates CNF formulas by checking for tautological clauses.
+
+Supported operators\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}+\textquotesingle{} \+: OR (disjunction)
+\item \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} \+: AND (conjunction)
+\item \textquotesingle{}\texorpdfstring{$\sim$}{\string~}\textquotesingle{} \+: NOT (negation)
+\item \textquotesingle{}\texorpdfstring{$>$}{>}\textquotesingle{} \+: IMPLIES (implication)
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Assumes input formulas are well-\/formed and fully parenthesized 
+\end{DoxyNote}
+
+
+\label{doc-func-members}
+\Hypertarget{parserandcnfconverter_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{parserandcnfconverter_8cpp_a5be4a6363372599206393751e32ce912}\index{parserandcnfconverter.cpp@{parserandcnfconverter.cpp}!infixtoprefix@{infixtoprefix}}
+\index{infixtoprefix@{infixtoprefix}!parserandcnfconverter.cpp@{parserandcnfconverter.cpp}}
+\doxysubsubsection{\texorpdfstring{infixtoprefix()}{infixtoprefix()}}
+{\footnotesize\ttfamily \label{parserandcnfconverter_8cpp_a5be4a6363372599206393751e32ce912} 
+string infixtoprefix (\begin{DoxyParamCaption}\item[{string}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Converts a fully parenthesized infix formula to prefix notation. 
+
+Algorithm\+:
+\begin{DoxyEnumerate}
+\item Reverse the input string
+\item Process each character\+:
+\begin{DoxyItemize}
+\item \textquotesingle{})\textquotesingle{} → push to stack (becomes opening delimiter after reversal)
+\item Operators (+, \texorpdfstring{$\ast$}{*}, \texorpdfstring{$>$}{>}) → push to stack
+\item \textquotesingle{}(\textquotesingle{} → pop operators from stack until \textquotesingle{})\textquotesingle{} is found (becomes closing delimiter)
+\item Variables/literals → add directly to result
+\end{DoxyItemize}
+\item Pop any remaining operators from stack
+\item Reverse the result to get prefix notation
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Infix notation string (must be well-\/formed and fully parenthesized) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The formula in prefix notation
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This algorithm works by\+:
+\begin{DoxyItemize}
+\item Reversing the input to process right-\/to-\/left
+\item Using a stack to handle operator ordering
+\item Swapping parentheses roles (due to reversal)
+\item Reversing the result to get correct prefix order
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Assumes input is well-\/formed and fully parenthesized. Malformed input may produce incorrect results.
+\end{DoxyWarning}
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{parserandcnfconverter_8cpp_a5be4a6363372599206393751e32ce912}{infixtoprefix}}(\textcolor{stringliteral}{"{}(p>q)"{}})\ returns\ \textcolor{stringliteral}{"{}>pq"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{parserandcnfconverter_8cpp_a5be4a6363372599206393751e32ce912}{infixtoprefix}}(\textcolor{stringliteral}{"{}(\string~(p>q))"{}})\ returns\ \textcolor{stringliteral}{"{}\string~>pq"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{parserandcnfconverter_8cpp_a5be4a6363372599206393751e32ce912}{infixtoprefix}}(\textcolor{stringliteral}{"{}((p+q)*(r>s))"{}})\ returns\ \textcolor{stringliteral}{"{}*+pq>rs"{}}}
+
+\end{DoxyCode}
+ \Hypertarget{parserandcnfconverter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{parserandcnfconverter.cpp@{parserandcnfconverter.cpp}!main@{main}}
+\index{main@{main}!parserandcnfconverter.cpp@{parserandcnfconverter.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{parserandcnfconverter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main function to test CNF conversion and validation. 
+
+Tests a set of propositional formulas by\+:
+\begin{DoxyEnumerate}
+\item Parsing the infix formula
+\item Converting to CNF
+\item Checking validity (if all clauses are tautologies)
+\item Counting valid and invalid clauses
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+int Program exit status (0 for success) 
+\end{DoxyReturn}

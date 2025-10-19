@@ -1,0 +1,141 @@
+\doxysection{cnfsat2002.\+cpp File Reference}
+\hypertarget{cnfsat2002_8cpp}{}\label{cnfsat2002_8cpp}\index{cnfsat2002.cpp@{cnfsat2002.cpp}}
+
+
+CNF (Conjunctive Normal Form) SAT formula validator.  
+
+
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{cnfsat2002_8cpp_a8954a676aa3c3af428b7265e17be4388}{cnf\+\_\+validcno}} (string filepath)
+\begin{DoxyCompactList}\small\item\em Counts the number of valid clauses in a CNF formula file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{cnfsat2002_8cpp_abfb5604d9f21781c46564d438ec005ca}{cnf\+\_\+non\+\_\+valid\+\_\+cno}} (string filepath)
+\begin{DoxyCompactList}\small\item\em Counts the number of non-\/valid (non-\/tautology) clauses in a CNF formula. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{cnfsat2002_8cpp_acde43dfbce70dbc5c359693b978e5b54}{cnf\+\_\+validitychecker}} (string filepath)
+\begin{DoxyCompactList}\small\item\em Checks if all clauses in a CNF formula are valid (tautologies) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{cnfsat2002_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function to test CNF validity checker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+CNF (Conjunctive Normal Form) SAT formula validator. 
+
+\begin{DoxyAuthor}{Author}
+K Vikashh Adaikalavan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025
+\end{DoxyDate}
+This program reads CNF formulas from a file and validates them by checking if clauses are valid. A clause is considered valid if it contains both a literal and its negation (making it always true). 
+
+\label{doc-func-members}
+\Hypertarget{cnfsat2002_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{cnfsat2002_8cpp_abfb5604d9f21781c46564d438ec005ca}\index{cnfsat2002.cpp@{cnfsat2002.cpp}!cnf\_non\_valid\_cno@{cnf\_non\_valid\_cno}}
+\index{cnf\_non\_valid\_cno@{cnf\_non\_valid\_cno}!cnfsat2002.cpp@{cnfsat2002.cpp}}
+\doxysubsubsection{\texorpdfstring{cnf\_non\_valid\_cno()}{cnf\_non\_valid\_cno()}}
+{\footnotesize\ttfamily \label{cnfsat2002_8cpp_abfb5604d9f21781c46564d438ec005ca} 
+int cnf\+\_\+non\+\_\+valid\+\_\+cno (\begin{DoxyParamCaption}\item[{string}]{filepath}{}\end{DoxyParamCaption})}
+
+
+
+Counts the number of non-\/valid (non-\/tautology) clauses in a CNF formula. 
+
+Calculates the difference between total clauses and valid clauses.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & Path to the CNF file in DIMACS format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Number of non-\/valid clauses, or -\/1 if file cannot be opened
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{cnfsat2002_8cpp_a8954a676aa3c3af428b7265e17be4388}{cnf\+\_\+validcno()} 
+\end{DoxySeeAlso}
+\Hypertarget{cnfsat2002_8cpp_a8954a676aa3c3af428b7265e17be4388}\index{cnfsat2002.cpp@{cnfsat2002.cpp}!cnf\_validcno@{cnf\_validcno}}
+\index{cnf\_validcno@{cnf\_validcno}!cnfsat2002.cpp@{cnfsat2002.cpp}}
+\doxysubsubsection{\texorpdfstring{cnf\_validcno()}{cnf\_validcno()}}
+{\footnotesize\ttfamily \label{cnfsat2002_8cpp_a8954a676aa3c3af428b7265e17be4388} 
+int cnf\+\_\+validcno (\begin{DoxyParamCaption}\item[{string}]{filepath}{}\end{DoxyParamCaption})}
+
+
+
+Counts the number of valid clauses in a CNF formula file. 
+
+A clause is considered valid if it contains both a literal and its negation (e.\+g., x and -\/x), which makes the clause always satisfiable (tautology).
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & Path to the CNF file in DIMACS format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Number of valid clauses found, or -\/1 if file cannot be opened
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The CNF file should follow DIMACS format\+:
+\begin{DoxyItemize}
+\item Header line\+: p cnf $<$num\+\_\+variables$>$ $<$num\+\_\+clauses$>$
+\item Each clause line contains space-\/separated integers ending with 0
+\item Negative numbers represent negated literals
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+This function opens and reads the file each time it\textquotesingle{}s called 
+\end{DoxyWarning}
+\Hypertarget{cnfsat2002_8cpp_acde43dfbce70dbc5c359693b978e5b54}\index{cnfsat2002.cpp@{cnfsat2002.cpp}!cnf\_validitychecker@{cnf\_validitychecker}}
+\index{cnf\_validitychecker@{cnf\_validitychecker}!cnfsat2002.cpp@{cnfsat2002.cpp}}
+\doxysubsubsection{\texorpdfstring{cnf\_validitychecker()}{cnf\_validitychecker()}}
+{\footnotesize\ttfamily \label{cnfsat2002_8cpp_acde43dfbce70dbc5c359693b978e5b54} 
+bool cnf\+\_\+validitychecker (\begin{DoxyParamCaption}\item[{string}]{filepath}{}\end{DoxyParamCaption})}
+
+
+
+Checks if all clauses in a CNF formula are valid (tautologies) 
+
+A CNF formula is considered "{}valid"{} in this context if all of its clauses are tautologies (each contains both a literal and its negation).
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & Path to the CNF file in DIMACS format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if all clauses are valid (tautologies), false otherwise 
+
+bool Returns false (cast from -\/1) if file cannot be opened
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This definition of "{}valid"{} is specific to this implementation and differs from standard SAT terminology
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{cnfsat2002_8cpp_a8954a676aa3c3af428b7265e17be4388}{cnf\+\_\+validcno()} 
+\end{DoxySeeAlso}
+\Hypertarget{cnfsat2002_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{cnfsat2002.cpp@{cnfsat2002.cpp}!main@{main}}
+\index{main@{main}!cnfsat2002.cpp@{cnfsat2002.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{cnfsat2002_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main function to test CNF validity checker. 
+
+Reads a CNF file and outputs\+:
+\begin{DoxyItemize}
+\item Whether the formula is valid (all clauses are tautologies)
+\item Number of valid clauses
+\item Number of invalid clauses
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+int Program exit status (0 for success) 
+\end{DoxyReturn}

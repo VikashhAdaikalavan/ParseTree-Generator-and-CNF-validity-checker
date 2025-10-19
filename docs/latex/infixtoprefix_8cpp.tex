@@ -1,0 +1,131 @@
+\doxysection{infixtoprefix.\+cpp File Reference}
+\hypertarget{infixtoprefix_8cpp}{}\label{infixtoprefix_8cpp}\index{infixtoprefix.cpp@{infixtoprefix.cpp}}
+
+
+Converts infix propositional logic formulas to prefix notation.  
+
+
+{\ttfamily \#include "{}infixtoprefix.\+hpp"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{infixtoprefix_8cpp_ae7d2251268dc1f5661311b62a037de6e}{precedence}} (char x)
+\begin{DoxyCompactList}\small\item\em Returns the precedence level of a logical operator. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{infixtoprefix_8cpp_a5be4a6363372599206393751e32ce912}{infixtoprefix}} (string s)
+\begin{DoxyCompactList}\small\item\em Converts a fully parenthesized infix formula to prefix notation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Converts infix propositional logic formulas to prefix notation. 
+
+\begin{DoxyAuthor}{Author}
+K Vikashh Adaikalavan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025
+\end{DoxyDate}
+This module handles the conversion of fully parenthesized infix logical formulas to prefix notation for easier parsing and tree construction.
+
+Supported operators\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}\texorpdfstring{$\sim$}{\string~}\textquotesingle{} \+: NOT (negation) -\/ highest precedence
+\item \textquotesingle{}+\textquotesingle{} \+: OR (disjunction) -\/ medium precedence
+\item \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} \+: AND (conjunction) -\/ medium precedence
+\item \textquotesingle{}\texorpdfstring{$>$}{>}\textquotesingle{} \+: IMPLIES (implication) -\/ lowest precedence
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Assumes input formulas are well-\/formed and fully parenthesized 
+\end{DoxyNote}
+
+
+\label{doc-func-members}
+\Hypertarget{infixtoprefix_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{infixtoprefix_8cpp_a5be4a6363372599206393751e32ce912}\index{infixtoprefix.cpp@{infixtoprefix.cpp}!infixtoprefix@{infixtoprefix}}
+\index{infixtoprefix@{infixtoprefix}!infixtoprefix.cpp@{infixtoprefix.cpp}}
+\doxysubsubsection{\texorpdfstring{infixtoprefix()}{infixtoprefix()}}
+{\footnotesize\ttfamily \label{infixtoprefix_8cpp_a5be4a6363372599206393751e32ce912} 
+string infixtoprefix (\begin{DoxyParamCaption}\item[{string}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Converts a fully parenthesized infix formula to prefix notation. 
+
+Algorithm\+:
+\begin{DoxyEnumerate}
+\item Reverse the input string
+\item Process each character\+:
+\begin{DoxyItemize}
+\item \textquotesingle{})\textquotesingle{} → push to stack (becomes opening delimiter after reversal)
+\item Operators (+, \texorpdfstring{$\ast$}{*}, \texorpdfstring{$>$}{>}) → push to stack
+\item \textquotesingle{}(\textquotesingle{} → pop operators from stack until \textquotesingle{})\textquotesingle{} is found (becomes closing delimiter)
+\item Variables/literals → add directly to result
+\end{DoxyItemize}
+\item Pop any remaining operators from stack
+\item Reverse the result to get prefix notation
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Infix notation string (must be well-\/formed and fully parenthesized) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string The formula in prefix notation
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This algorithm works by\+:
+\begin{DoxyItemize}
+\item Reversing the input to process right-\/to-\/left
+\item Using a stack to handle operator ordering
+\item Swapping parentheses roles (due to reversal)
+\item Reversing the result to get correct prefix order
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Assumes input is well-\/formed and fully parenthesized. Malformed input may produce incorrect results.
+\end{DoxyWarning}
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{infixtoprefix_8cpp_a5be4a6363372599206393751e32ce912}{infixtoprefix}}(\textcolor{stringliteral}{"{}(p>q)"{}})\ returns\ \textcolor{stringliteral}{"{}>pq"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{infixtoprefix_8cpp_a5be4a6363372599206393751e32ce912}{infixtoprefix}}(\textcolor{stringliteral}{"{}(\string~(p>q))"{}})\ returns\ \textcolor{stringliteral}{"{}\string~>pq"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{infixtoprefix_8cpp_a5be4a6363372599206393751e32ce912}{infixtoprefix}}(\textcolor{stringliteral}{"{}((p+q)*(r>s))"{}})\ returns\ \textcolor{stringliteral}{"{}*+pq>rs"{}}}
+
+\end{DoxyCode}
+ \Hypertarget{infixtoprefix_8cpp_ae7d2251268dc1f5661311b62a037de6e}\index{infixtoprefix.cpp@{infixtoprefix.cpp}!precedence@{precedence}}
+\index{precedence@{precedence}!infixtoprefix.cpp@{infixtoprefix.cpp}}
+\doxysubsubsection{\texorpdfstring{precedence()}{precedence()}}
+{\footnotesize\ttfamily \label{infixtoprefix_8cpp_ae7d2251268dc1f5661311b62a037de6e} 
+int precedence (\begin{DoxyParamCaption}\item[{char}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Returns the precedence level of a logical operator. 
+
+Precedence levels (higher number = higher precedence)\+:
+\begin{DoxyItemize}
+\item NOT (\texorpdfstring{$\sim$}{\string~})\+: 3 (highest)
+\item OR (+) and AND (\texorpdfstring{$\ast$}{*})\+: 2 (medium)
+\item IMPLIES (\texorpdfstring{$>$}{>})\+: 1 (lowest)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The operator character to evaluate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Precedence level of the operator (1-\/3) 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em int} & Throws -\/1 if the character is not a valid operator\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+Used during infix to prefix conversion to determine operator ordering 
+\end{DoxyNote}

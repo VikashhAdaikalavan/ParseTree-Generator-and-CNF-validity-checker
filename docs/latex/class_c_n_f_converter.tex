@@ -1,0 +1,312 @@
+\doxysection{CNFConverter Class Reference}
+\hypertarget{class_c_n_f_converter}{}\label{class_c_n_f_converter}\index{CNFConverter@{CNFConverter}}
+
+
+Converts propositional logic formulas to Conjunctive Normal Form (CNF)  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_n_f_converter_a4f17e12194b6bd9bc6e663fe12edae02}{CNFConverter}} (string s)
+\begin{DoxyCompactList}\small\item\em Constructor that initializes the converter with an infix formula. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_n_f_converter_a0fd50e39413894c1401ac91cfb421843}{impfree}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Eliminates implications from the formula (private helper) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_n_f_converter_ae10dc27b7fd301c793d5dc8aee6a5049}{impfree}} ()
+\begin{DoxyCompactList}\small\item\em Eliminates implications from the entire tree. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_n_f_converter_a6550b5601e148e17bccaeea6a51ac36f}{nnf}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Converts formula to Negation Normal Form (private helper) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_n_f_converter_a52298c692e61b33ad307e99ea15ee9a6}{nnf}} ()
+\begin{DoxyCompactList}\small\item\em Converts entire formula to Negation Normal Form. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_n_f_converter_a841f00a1e297c32a0a3b486a6ee36a9b}{DISTR}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}A, \mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}B)
+\begin{DoxyCompactList}\small\item\em Distributes OR over AND to maintain CNF structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_n_f_converter_af032d6d375f4e21e443a7110e742fbb2}{CNF}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}phi)
+\begin{DoxyCompactList}\small\item\em Converts formula to CNF (private helper) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_n_f_converter_a73d49d7d10632a91ecbf2d38ef741711}{cnf}} ()
+\begin{DoxyCompactList}\small\item\em Converts the entire formula to CNF. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_n_f_converter_aec2e842fbef3d7319784870fbff22f81}{tree\+To\+String}} (\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}root, string \&result)
+\begin{DoxyCompactList}\small\item\em Converts parse tree to string representation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_c_n_f_converter_a9484520be5a3103806abc6713cf7ec8f}{checkvalid}} ()
+\begin{DoxyCompactList}\small\item\em Checks if all clauses in the CNF formula are valid (tautologies) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_c_n_f_converter_afbb1d71444faa12309c88774d9ae25ea}{nonvalidclause\+\_\+no}} ()
+\begin{DoxyCompactList}\small\item\em Counts the number of non-\/tautological clauses. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_c_n_f_converter_ab240635fe6452b5681d8c205c718f8b6}{validclause\+\_\+no}} ()
+\begin{DoxyCompactList}\small\item\em Counts the number of tautological clauses in the CNF formula. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_c_n_f_converter_a1c4462417e087af6d99dd6f4ece79389}{roottree}}
+\begin{DoxyCompactList}\small\item\em Root of the parse tree being converted. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_c_n_f_converter_a46b2397d0c3f14949accc89ae06681a3}{prefix\+\_\+string}}
+\begin{DoxyCompactList}\small\item\em Prefix notation of the formula. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_c_n_f_converter_a64543757921d25a976d411f56666e934}{valid\+\_\+clause}} = 0
+\begin{DoxyCompactList}\small\item\em Count of valid (tautological) clauses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Converts propositional logic formulas to Conjunctive Normal Form (CNF) 
+
+Performs a three-\/step conversion process\+:
+\begin{DoxyEnumerate}
+\item Eliminate implications (convert \texorpdfstring{$>$}{>} to + and \texorpdfstring{$\sim$}{\string~})
+\item Convert to Negation Normal Form (NNF) -\/ push negations inward
+\item Distribute OR over AND to get CNF
+\end{DoxyEnumerate}
+
+Also validates CNF formulas by checking for tautological clauses (clauses containing both a literal and its negation). 
+
+\label{doc-constructors}
+\Hypertarget{class_c_n_f_converter_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_c_n_f_converter_a4f17e12194b6bd9bc6e663fe12edae02}\index{CNFConverter@{CNFConverter}!CNFConverter@{CNFConverter}}
+\index{CNFConverter@{CNFConverter}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{CNFConverter()}{CNFConverter()}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_a4f17e12194b6bd9bc6e663fe12edae02} 
+CNFConverter\+::\+CNFConverter (\begin{DoxyParamCaption}\item[{string}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor that initializes the converter with an infix formula. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Infix notation string of the logical formula \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_c_n_f_converter_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_n_f_converter_a9484520be5a3103806abc6713cf7ec8f}\index{CNFConverter@{CNFConverter}!checkvalid@{checkvalid}}
+\index{checkvalid@{checkvalid}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{checkvalid()}{checkvalid()}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_a9484520be5a3103806abc6713cf7ec8f} 
+bool CNFConverter\+::checkvalid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if all clauses in the CNF formula are valid (tautologies) 
+
+\begin{DoxyReturn}{Returns}
+bool True if all clauses are tautologies, false otherwise
+\end{DoxyReturn}
+A clause is a tautology if it contains both a literal and its negation (e.\+g., p + \texorpdfstring{$\sim$}{\string~}p), making it always true. \Hypertarget{class_c_n_f_converter_af032d6d375f4e21e443a7110e742fbb2}\index{CNFConverter@{CNFConverter}!CNF@{CNF}}
+\index{CNF@{CNF}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{CNF()}{CNF()}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_af032d6d375f4e21e443a7110e742fbb2} 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} CNFConverter\+::\+CNF (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{phi}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts formula to CNF (private helper) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phi} & Current node being converted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Treenode\texorpdfstring{$\ast$}{*} CNF version of the subtree
+\end{DoxyReturn}
+Recursively converts to CNF by\+:
+\begin{DoxyItemize}
+\item Preserving AND nodes
+\item Distributing OR over AND when needed
+\item Keeping literals as-\/is 
+\end{DoxyItemize}\Hypertarget{class_c_n_f_converter_a73d49d7d10632a91ecbf2d38ef741711}\index{CNFConverter@{CNFConverter}!cnf@{cnf}}
+\index{cnf@{cnf}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{cnf()}{cnf()}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_a73d49d7d10632a91ecbf2d38ef741711} 
+void CNFConverter\+::cnf (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts the entire formula to CNF. 
+
+Three-\/step process\+:
+\begin{DoxyEnumerate}
+\item Remove implications
+\item Convert to NNF
+\item Apply distribution to get CNF 
+\end{DoxyEnumerate}\Hypertarget{class_c_n_f_converter_a841f00a1e297c32a0a3b486a6ee36a9b}\index{CNFConverter@{CNFConverter}!DISTR@{DISTR}}
+\index{DISTR@{DISTR}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{DISTR()}{DISTR()}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_a841f00a1e297c32a0a3b486a6ee36a9b} 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} CNFConverter\+::\+DISTR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{A}{, }\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{B}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Distributes OR over AND to maintain CNF structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & Left subtree \\
+\hline
+{\em B} & Right subtree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Treenode\texorpdfstring{$\ast$}{*} New tree with OR distributed over AND
+\end{DoxyReturn}
+Distribution rules\+:
+\begin{DoxyItemize}
+\item (A \texorpdfstring{$\ast$}{*} B) + C becomes (A + C) \texorpdfstring{$\ast$}{*} (B + C)
+\item A + (B \texorpdfstring{$\ast$}{*} C) becomes (A + B) \texorpdfstring{$\ast$}{*} (A + C)
+\item literal + literal stays as is
+\end{DoxyItemize}
+
+This is the key operation for converting to CNF. \Hypertarget{class_c_n_f_converter_ae10dc27b7fd301c793d5dc8aee6a5049}\index{CNFConverter@{CNFConverter}!impfree@{impfree}}
+\index{impfree@{impfree}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{impfree()}{impfree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_ae10dc27b7fd301c793d5dc8aee6a5049} 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} CNFConverter\+::impfree (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Eliminates implications from the entire tree. 
+
+\begin{DoxyReturn}{Returns}
+Treenode\texorpdfstring{$\ast$}{*} Root of the transformed tree 
+\end{DoxyReturn}
+\Hypertarget{class_c_n_f_converter_a0fd50e39413894c1401ac91cfb421843}\index{CNFConverter@{CNFConverter}!impfree@{impfree}}
+\index{impfree@{impfree}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{impfree()}{impfree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_a0fd50e39413894c1401ac91cfb421843} 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} CNFConverter\+::impfree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Eliminates implications from the formula (private helper) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Current node being processed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Treenode\texorpdfstring{$\ast$}{*} Transformed subtree with implications removed
+\end{DoxyReturn}
+Transformation rule\+: (A \texorpdfstring{$>$}{>} B) becomes (\texorpdfstring{$\sim$}{\string~}A + B) Recursively processes all implication operators in the tree. \Hypertarget{class_c_n_f_converter_a52298c692e61b33ad307e99ea15ee9a6}\index{CNFConverter@{CNFConverter}!nnf@{nnf}}
+\index{nnf@{nnf}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{nnf()}{nnf()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_a52298c692e61b33ad307e99ea15ee9a6} 
+void CNFConverter\+::nnf (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts entire formula to Negation Normal Form. 
+
+\Hypertarget{class_c_n_f_converter_a6550b5601e148e17bccaeea6a51ac36f}\index{CNFConverter@{CNFConverter}!nnf@{nnf}}
+\index{nnf@{nnf}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{nnf()}{nnf()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_a6550b5601e148e17bccaeea6a51ac36f} 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} CNFConverter\+::nnf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts formula to Negation Normal Form (private helper) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Current node being processed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Treenode\texorpdfstring{$\ast$}{*} Transformed subtree in NNF
+\end{DoxyReturn}
+NNF transformation rules (De Morgan\textquotesingle{}s laws)\+:
+\begin{DoxyItemize}
+\item \texorpdfstring{$\sim$}{\string~}(A + B) becomes (\texorpdfstring{$\sim$}{\string~}A \texorpdfstring{$\ast$}{*} \texorpdfstring{$\sim$}{\string~}B)
+\item \texorpdfstring{$\sim$}{\string~}(A \texorpdfstring{$\ast$}{*} B) becomes (\texorpdfstring{$\sim$}{\string~}A + \texorpdfstring{$\sim$}{\string~}B)
+\item \texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}A becomes A
+\end{DoxyItemize}
+
+Pushes all negations down to the variable level. \Hypertarget{class_c_n_f_converter_afbb1d71444faa12309c88774d9ae25ea}\index{CNFConverter@{CNFConverter}!nonvalidclause\_no@{nonvalidclause\_no}}
+\index{nonvalidclause\_no@{nonvalidclause\_no}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{nonvalidclause\_no()}{nonvalidclause\_no()}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_afbb1d71444faa12309c88774d9ae25ea} 
+int CNFConverter\+::nonvalidclause\+\_\+no (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Counts the number of non-\/tautological clauses. 
+
+\begin{DoxyReturn}{Returns}
+int Number of clauses that are not tautologies 
+\end{DoxyReturn}
+\Hypertarget{class_c_n_f_converter_aec2e842fbef3d7319784870fbff22f81}\index{CNFConverter@{CNFConverter}!treeToString@{treeToString}}
+\index{treeToString@{treeToString}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{treeToString()}{treeToString()}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_aec2e842fbef3d7319784870fbff22f81} 
+void CNFConverter\+::tree\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{root}{, }\item[{string \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts parse tree to string representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & Current node being converted \\
+\hline
+{\em result} & Reference to result string being built\\
+\hline
+\end{DoxyParams}
+Creates a string with operators and variables in order. Used for analyzing clause structure. \Hypertarget{class_c_n_f_converter_ab240635fe6452b5681d8c205c718f8b6}\index{CNFConverter@{CNFConverter}!validclause\_no@{validclause\_no}}
+\index{validclause\_no@{validclause\_no}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{validclause\_no()}{validclause\_no()}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_ab240635fe6452b5681d8c205c718f8b6} 
+int CNFConverter\+::validclause\+\_\+no (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Counts the number of tautological clauses in the CNF formula. 
+
+\begin{DoxyReturn}{Returns}
+int Number of clauses containing both a literal and its negation
+\end{DoxyReturn}
+Algorithm\+:
+\begin{DoxyItemize}
+\item Splits formula by \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} to get individual clauses
+\item For each clause, tracks normal and negated literals
+\item If any literal appears in both forms, clause is tautological 
+\end{DoxyItemize}
+
+\label{doc-variable-members}
+\Hypertarget{class_c_n_f_converter_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_c_n_f_converter_a46b2397d0c3f14949accc89ae06681a3}\index{CNFConverter@{CNFConverter}!prefix\_string@{prefix\_string}}
+\index{prefix\_string@{prefix\_string}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{prefix\_string}{prefix\_string}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_a46b2397d0c3f14949accc89ae06681a3} 
+string CNFConverter\+::prefix\+\_\+string}
+
+
+
+Prefix notation of the formula. 
+
+\Hypertarget{class_c_n_f_converter_a1c4462417e087af6d99dd6f4ece79389}\index{CNFConverter@{CNFConverter}!roottree@{roottree}}
+\index{roottree@{roottree}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{roottree}{roottree}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_a1c4462417e087af6d99dd6f4ece79389} 
+\mbox{\hyperlink{class_treenode}{Treenode}}\texorpdfstring{$\ast$}{*} CNFConverter\+::roottree}
+
+
+
+Root of the parse tree being converted. 
+
+\Hypertarget{class_c_n_f_converter_a64543757921d25a976d411f56666e934}\index{CNFConverter@{CNFConverter}!valid\_clause@{valid\_clause}}
+\index{valid\_clause@{valid\_clause}!CNFConverter@{CNFConverter}}
+\doxysubsubsection{\texorpdfstring{valid\_clause}{valid\_clause}}
+{\footnotesize\ttfamily \label{class_c_n_f_converter_a64543757921d25a976d411f56666e934} 
+int CNFConverter\+::valid\+\_\+clause = 0}
+
+
+
+Count of valid (tautological) clauses. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{parserandcnfconverter_8cpp}{parserandcnfconverter.\+cpp}}\end{DoxyCompactItemize}

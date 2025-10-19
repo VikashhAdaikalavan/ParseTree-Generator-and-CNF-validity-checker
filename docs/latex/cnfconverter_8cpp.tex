@@ -1,0 +1,78 @@
+\doxysection{cnfconverter.\+cpp File Reference}
+\hypertarget{cnfconverter_8cpp}{}\label{cnfconverter_8cpp}\index{cnfconverter.cpp@{cnfconverter.cpp}}
+
+
+Propositional Logic Formula to CNF (Conjunctive Normal Form) Converter.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}infixtoprefix.\+hpp"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$bitset$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_treenode}{Treenode}}
+\begin{DoxyCompactList}\small\item\em Represents a node in the parse tree for propositional formulas. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_parsetree}{Parsetree}}
+\begin{DoxyCompactList}\small\item\em Builds and manages a parse tree from prefix notation strings. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classvaluecomputer}{valuecomputer}}
+\begin{DoxyCompactList}\small\item\em Computes truth values of propositional formulas. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_c_n_f_converter}{CNFConverter}}
+\begin{DoxyCompactList}\small\item\em Converts propositional logic formulas to Conjunctive Normal Form (CNF) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{cnfconverter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function to test CNF conversion and validation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Propositional Logic Formula to CNF (Conjunctive Normal Form) Converter. 
+
+\begin{DoxyAuthor}{Author}
+K Vikashh Adaikalavan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025
+\end{DoxyDate}
+This program converts propositional logic formulas from infix notation to CNF form. It builds parse trees, evaluates truth values, and validates CNF formulas by checking for tautological clauses.
+
+Supported operators\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}+\textquotesingle{} \+: OR (disjunction)
+\item \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} \+: AND (conjunction)
+\item \textquotesingle{}\texorpdfstring{$\sim$}{\string~}\textquotesingle{} \+: NOT (negation)
+\item \textquotesingle{}\texorpdfstring{$>$}{>}\textquotesingle{} \+: IMPLIES (implication) 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{cnfconverter_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{cnfconverter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{cnfconverter.cpp@{cnfconverter.cpp}!main@{main}}
+\index{main@{main}!cnfconverter.cpp@{cnfconverter.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{cnfconverter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main function to test CNF conversion and validation. 
+
+Tests a set of propositional formulas by\+:
+\begin{DoxyEnumerate}
+\item Parsing the infix formula
+\item Converting to CNF
+\item Checking validity (if all clauses are tautologies)
+\item Counting valid and invalid clauses
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+int Program exit status (0 for success) 
+\end{DoxyReturn}

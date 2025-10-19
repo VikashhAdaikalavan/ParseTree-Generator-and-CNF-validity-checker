@@ -1,0 +1,106 @@
+\doxysection{Treenode Class Reference}
+\hypertarget{class_treenode}{}\label{class_treenode}\index{Treenode@{Treenode}}
+
+
+Represents a node in the parse tree for propositional formulas.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_treenode_a27d35944170d2971bc5951a3d508a2b2}{Treenode}} (char nv, \mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}l, \mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}r)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_treenode}{Treenode}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_treenode_a357c156170a93243a8d1321db3eb5443}{nodeval}}
+\begin{DoxyCompactList}\small\item\em The value stored in the node (operator or variable) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_treenode_ac2f6fb3a392ba8aa2713f6e3332406b8}{left}}
+\begin{DoxyCompactList}\small\item\em Pointer to left child node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_treenode_a79d5657e15790889beeed0f860cf80e6}{right}}
+\begin{DoxyCompactList}\small\item\em Pointer to right child node. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_treenode_a9891a6fd656621b0ecbb9bdc19ff5d18}{truthvalue}} = 0
+\begin{DoxyCompactList}\small\item\em Truth value of the node (0 or 1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a node in the parse tree for propositional formulas. 
+
+Each node can represent either\+:
+\begin{DoxyItemize}
+\item An operator (+, \texorpdfstring{$\ast$}{*}, \texorpdfstring{$>$}{>}, \texorpdfstring{$\sim$}{\string~})
+\item A propositional variable (a-\/z, A-\/Z) 
+\end{DoxyItemize}
+
+\label{doc-constructors}
+\Hypertarget{class_treenode_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_treenode_a27d35944170d2971bc5951a3d508a2b2}\index{Treenode@{Treenode}!Treenode@{Treenode}}
+\index{Treenode@{Treenode}!Treenode@{Treenode}}
+\doxysubsubsection{\texorpdfstring{Treenode()}{Treenode()}}
+{\footnotesize\ttfamily \label{class_treenode_a27d35944170d2971bc5951a3d508a2b2} 
+Treenode\+::\+Treenode (\begin{DoxyParamCaption}\item[{char}]{nv}{, }\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{l}{, }\item[{\mbox{\hyperlink{class_treenode}{Treenode}} \texorpdfstring{$\ast$}{*}}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \doxylink{class_treenode}{Treenode}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nv} & Node value (operator or variable) \\
+\hline
+{\em l} & Pointer to left child \\
+\hline
+{\em r} & Pointer to right child \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_treenode_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_treenode_ac2f6fb3a392ba8aa2713f6e3332406b8}\index{Treenode@{Treenode}!left@{left}}
+\index{left@{left}!Treenode@{Treenode}}
+\doxysubsubsection{\texorpdfstring{left}{left}}
+{\footnotesize\ttfamily \label{class_treenode_ac2f6fb3a392ba8aa2713f6e3332406b8} 
+\mbox{\hyperlink{class_treenode}{Treenode}}\texorpdfstring{$\ast$}{*} Treenode\+::left}
+
+
+
+Pointer to left child node. 
+
+\Hypertarget{class_treenode_a357c156170a93243a8d1321db3eb5443}\index{Treenode@{Treenode}!nodeval@{nodeval}}
+\index{nodeval@{nodeval}!Treenode@{Treenode}}
+\doxysubsubsection{\texorpdfstring{nodeval}{nodeval}}
+{\footnotesize\ttfamily \label{class_treenode_a357c156170a93243a8d1321db3eb5443} 
+char Treenode\+::nodeval}
+
+
+
+The value stored in the node (operator or variable) 
+
+\Hypertarget{class_treenode_a79d5657e15790889beeed0f860cf80e6}\index{Treenode@{Treenode}!right@{right}}
+\index{right@{right}!Treenode@{Treenode}}
+\doxysubsubsection{\texorpdfstring{right}{right}}
+{\footnotesize\ttfamily \label{class_treenode_a79d5657e15790889beeed0f860cf80e6} 
+\mbox{\hyperlink{class_treenode}{Treenode}}\texorpdfstring{$\ast$}{*} Treenode\+::right}
+
+
+
+Pointer to right child node. 
+
+\Hypertarget{class_treenode_a9891a6fd656621b0ecbb9bdc19ff5d18}\index{Treenode@{Treenode}!truthvalue@{truthvalue}}
+\index{truthvalue@{truthvalue}!Treenode@{Treenode}}
+\doxysubsubsection{\texorpdfstring{truthvalue}{truthvalue}}
+{\footnotesize\ttfamily \label{class_treenode_a9891a6fd656621b0ecbb9bdc19ff5d18} 
+int Treenode\+::truthvalue = 0}
+
+
+
+Truth value of the node (0 or 1) 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{parserandcnfconverter_8cpp}{parserandcnfconverter.\+cpp}}\end{DoxyCompactItemize}
