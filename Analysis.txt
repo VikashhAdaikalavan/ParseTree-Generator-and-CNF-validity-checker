@@ -3,7 +3,8 @@ D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\10142
 Invalid
 No of valid clauses: 0
 No of invalid clauses: 37225
-Time taken: 77.2698 ms
+Time taken: 106.111 ms
+Memory used: 100 KB
 
 
 D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\10142772393204023nc.shuffled-as.sat03-1662.cnf
@@ -11,7 +12,8 @@ D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\10142
 Invalid
 No of valid clauses: 0
 No of invalid clauses: 33248
-Time taken: 68.9409 ms
+Time taken: 92.4271 ms
+Memory used: 0 KB
 
 
 D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\10142772393204023nw.shuffled-as.sat03-1663.cnf
@@ -19,7 +21,8 @@ D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\10142
 Invalid
 No of valid clauses: 0
 No of invalid clauses: 34117
-Time taken: 71.0181 ms
+Time taken: 93.0162 ms
+Memory used: 0 KB
 
 
 D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\2000009987fw.shuffled-as.sat03-1664.cnf
@@ -27,7 +30,8 @@ D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\20000
 Invalid
 No of valid clauses: 0
 No of invalid clauses: 12719
-Time taken: 26.6173 ms
+Time taken: 35.26 ms
+Memory used: 0 KB
 
 
 D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\2000009987nc.shuffled-as.sat03-1665.cnf
@@ -35,7 +39,8 @@ D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\20000
 Invalid
 No of valid clauses: 0
 No of invalid clauses: 10886
-Time taken: 23.7298 ms
+Time taken: 29.632 ms
+Memory used: 12 KB
 
 
 D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\2000009987nw.shuffled-as.sat03-1666.cnf
@@ -43,6 +48,862 @@ D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\20000
 Invalid
 No of valid clauses: 0
 No of invalid clauses: 11171
-Time taken: 22.9556 ms
+Time taken: 30.9525 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\2013113162201nc.shuffled-as.sat03-1667.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 19321
+Time taken: 52.8888 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\2013113162201nw.shuffled-as.sat03-1668.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 19934
+Time taken: 55.56 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\23.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 474
+Time taken: 1.132 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\2dlx_ca_mc_ex_bp_f.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 24640
+Time taken: 67.9668 ms
+Memory used: 24 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\2dlx_cc_mc_ex_bp_f.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 41704
+Time taken: 119.851 ms
+Memory used: 16 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3bitadd_31.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 31310
+Time taken: 81.8111 ms
+Memory used: 52 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col100_5_1.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 856
+Time taken: 2.9689 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col100_5_10.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 856
+Time taken: 2.882 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col100_5_2.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 856
+Time taken: 2.8208 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col100_5_3.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 856
+Time taken: 2.8031 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col100_5_4.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 856
+Time taken: 2.826 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col100_5_5.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 856
+Time taken: 2.829 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col100_5_6.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 856
+Time taken: 2.8414 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col100_5_7.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 856
+Time taken: 2.8166 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col100_5_8.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 856
+Time taken: 2.845 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col100_5_9.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 856
+Time taken: 2.8132 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col120_5_1.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1026
+Time taken: 3.9256 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col120_5_10.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1026
+Time taken: 3.6665 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col120_5_2.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1026
+Time taken: 3.4821 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col120_5_3.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1026
+Time taken: 3.4582 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col120_5_4.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1026
+Time taken: 3.372 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col120_5_5.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1026
+Time taken: 3.8623 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col120_5_6.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1026
+Time taken: 3.3835 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col120_5_7.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1026
+Time taken: 3.3555 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col120_5_8.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1026
+Time taken: 3.3634 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col120_5_9.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1026
+Time taken: 3.5244 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col140_5_1.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1196
+Time taken: 3.8854 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col140_5_10.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1196
+Time taken: 3.8942 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col140_5_2.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1196
+Time taken: 3.8836 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col140_5_3.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1196
+Time taken: 3.9119 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col140_5_4.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1196
+Time taken: 3.9277 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col140_5_5.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1196
+Time taken: 3.9017 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col140_5_6.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1196
+Time taken: 3.9112 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col140_5_7.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1196
+Time taken: 3.9521 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col140_5_8.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1196
+Time taken: 3.9118 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col140_5_9.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1196
+Time taken: 3.9043 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col160_5_1.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1366
+Time taken: 4.4462 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col160_5_10.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1366
+Time taken: 7.2508 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col160_5_2.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1366
+Time taken: 6.2488 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col160_5_3.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1366
+Time taken: 5.1279 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col160_5_4.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1366
+Time taken: 4.5497 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col160_5_5.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1366
+Time taken: 4.4341 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col160_5_6.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1366
+Time taken: 4.4352 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col160_5_7.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1366
+Time taken: 4.4203 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col160_5_8.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1366
+Time taken: 4.4376 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col160_5_9.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1366
+Time taken: 4.4147 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col180_5_1.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1536
+Time taken: 4.9778 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col180_5_10.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1536
+Time taken: 5.3987 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col180_5_2.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1536
+Time taken: 4.9739 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col180_5_3.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1536
+Time taken: 4.96 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col180_5_4.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1536
+Time taken: 5.1904 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col180_5_5.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1536
+Time taken: 4.9914 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col180_5_6.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1536
+Time taken: 4.9638 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col180_5_7.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1536
+Time taken: 4.9501 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col180_5_8.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1536
+Time taken: 4.9514 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col180_5_9.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1536
+Time taken: 4.989 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col200_5_1.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1706
+Time taken: 5.5232 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col200_5_10.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1706
+Time taken: 5.4665 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col200_5_2.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1706
+Time taken: 5.4969 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col200_5_3.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1706
+Time taken: 5.9561 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col200_5_4.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1706
+Time taken: 6.2036 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col200_5_5.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1706
+Time taken: 5.6106 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col200_5_6.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1706
+Time taken: 5.529 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col200_5_7.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1706
+Time taken: 5.5255 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col200_5_8.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1706
+Time taken: 5.7846 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col200_5_9.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1706
+Time taken: 6.2701 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col20_5_1.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 176
+Time taken: 0.6524 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col20_5_10.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 176
+Time taken: 0.6347 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col20_5_2.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 176
+Time taken: 0.6145 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col20_5_3.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 176
+Time taken: 0.6172 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col20_5_4.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 176
+Time taken: 0.6249 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col20_5_5.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 176
+Time taken: 0.6137 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col20_5_6.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 176
+Time taken: 0.6115 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col20_5_7.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 176
+Time taken: 0.601 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col20_5_8.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 176
+Time taken: 0.6047 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col20_5_9.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 176
+Time taken: 0.6132 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col220_5_1.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1876
+Time taken: 6.1199 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col220_5_10.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1876
+Time taken: 6.063 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col220_5_2.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1876
+Time taken: 6.0468 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col220_5_3.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1876
+Time taken: 6.0691 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col220_5_4.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1876
+Time taken: 6.062 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col220_5_5.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1876
+Time taken: 6.1332 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col220_5_6.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1876
+Time taken: 6.0569 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col220_5_7.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1876
+Time taken: 6.0867 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col220_5_8.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1876
+Time taken: 6.0314 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col220_5_9.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 1876
+Time taken: 6.0372 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col240_5_1.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 2046
+Time taken: 7.0701 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col240_5_10.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 2046
+Time taken: 6.6399 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col240_5_2.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 2046
+Time taken: 6.6026 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col240_5_3.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 2046
+Time taken: 6.5897 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col240_5_4.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 2046
+Time taken: 6.5919 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col240_5_5.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 2046
+Time taken: 6.6414 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col240_5_6.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 2046
+Time taken: 6.5715 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col240_5_7.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 2046
+Time taken: 7.1003 ms
+Memory used: 0 KB
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\3col240_5_8.shuffled.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 2046
+Time taken: 6.6237 ms
+Memory used: 0 KB
 
 

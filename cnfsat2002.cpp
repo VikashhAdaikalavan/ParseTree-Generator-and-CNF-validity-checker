@@ -16,6 +16,8 @@
 #include<unordered_set>
 #include <filesystem>
 #include <chrono>
+#include <windows.h>
+#include <psapi.h>
 
 using namespace std;
 namespace fs = std::filesystem;
@@ -194,6 +196,31 @@ bool cnf_validitychecker(string filepath)
     else return false;
 }
 
+/**
+ * @brief Get the current memory usage of the running process.
+ * 
+ * This function uses the Windows API to retrieve the current working set size
+ * of the process (i.e., the amount of memory currently in RAM for the process).
+ * It returns the memory usage in kilobytes (KB).
+ * 
+ * @return size_t The current memory usage of the process in KB. Returns 0 if 
+ *                the memory information cannot be retrieved.
+ * 
+ * @note This measures the memory of the entire process, not a specific function 
+ *       or file. Use it to approximate memory usage changes between code sections.
+ * 
+ * @warning Requires including <windows.h> and <psapi.h>. Also link against 
+ *          Psapi.lib if compiling in Visual Studio.
+ */
+
+size_t getMemoryKB() {
+    PROCESS_MEMORY_COUNTERS pmc;
+    if (GetProcessMemoryInfo(GetCurrentProcess(), &pmc, sizeof(pmc))) {
+        return pmc.WorkingSetSize / 1024; // KB
+    }
+    return 0;
+}
+
 // /**
 //  * @brief Main function to test CNF validity checker
 //  * 
@@ -204,54 +231,115 @@ bool cnf_validitychecker(string filepath)
 //  * 
 //  * @return int Program exit status (0 for success)
 //  */
-int main()
-{
-    string folder_path = "D:\\Projects\\ParseTree-Generator-and-CNF-validity-checker\\cnfextractedfiles";
-    string output_file = "D:\\Projects\\ParseTree-Generator-and-CNF-validity-checker\\Analysis.txt";
 
-    std::ofstream out(output_file);
+
+// int main()
+// {
+//     string folder_path = "D:\\Projects\\ParseTree-Generator-and-CNF-validity-checker\\cnfextractedfiles";
+//     string output_file = "D:\\Projects\\ParseTree-Generator-and-CNF-validity-checker\\Analysis.txt";
+
+//     std::ofstream out(output_file);
+//     if (!out) {
+//         std::cerr << "Failed to open output file!" << std::endl;
+//         return -1;
+//     }
+
+//     for (const auto& entry : fs::directory_iterator(folder_path))
+//     {
+//         if(entry.is_regular_file())
+//         {
+//             string path = entry.path().string();
+
+//             size_t memory_before = getMemoryKB();
+//             auto start = chrono::high_resolution_clock::now();
+
+//             int n1 = cnf_validcno(path);
+//             bool ans = cnf_validitychecker(path);
+//             int n2 = cnf_non_valid_cno(path);
+
+//             auto end = chrono::high_resolution_clock::now();
+//             chrono::duration<double, std::milli> elapsed_ms = end - start;
+//             size_t memory_after = getMemoryKB();
+//             size_t memory_used = (memory_after > memory_before) ? (memory_after - memory_before) : (memory_before-memory_after);
+
+//             out<< path<<endl;
+//             out<<endl;
+//             if(ans == true) out<<"Valid" << endl;
+//             else out<< "Invalid"<< endl;
+//             out<< "No of valid clauses: " << n1 << endl;
+//             out<< "No of invalid clauses: " << n2 <<endl;
+//             out << "Time taken: " << elapsed_ms.count() << " ms" << endl;
+//             out << "Memory used: " << memory_used << " KB" << endl;
+//             out <<endl<<endl;
+//         }
+
+//     }
+// }
+
+
+int main() {
+    string folder_path = "D:\\Projects\\ParseTree-Generator-and-CNF-validity-checker\\cnfextractedfiles";
+    string output_file = "D:\\Projects\\ParseTree-Generator-and-CNF-validity-checker\\Analysis.html";
+
+    ofstream out(output_file);
     if (!out) {
-        std::cerr << "Failed to open output file!" << std::endl;
+        cerr << "Failed to open output file!" << endl;
         return -1;
     }
 
-    int i = 0;
+    // --- HTML header ---
+    out << "<!DOCTYPE html>\n<html>\n<head>\n<title>CNF Analysis and Results</title>\n"
+        << "<style>\n"
+        << "table { border-collapse: collapse; width: 100%; }\n"
+        << "th, td { border: 1px solid black; padding: 8px; text-align: left; }\n"
+        << "th { background-color: #f2f2f2; }\n"
+        << "tr.invalid { background-color: #fdd; }\n"
+        << "tr.valid { background-color: #dfd; }\n"
+        << "</style>\n</head>\n<body>\n";
 
-    for (const auto& entry : fs::directory_iterator(folder_path))
-    {
-        if(i>5) break;
-        i++;
-        if(entry.is_regular_file())
-        {
+    out << "<h1>CNF Files Analysis and Results</h1>\n";
+    out << "<table>\n";
+    out << "<tr><th>File</th><th>Result</th><th>Valid Clauses</th>"
+           "<th>Invalid Clauses</th><th>Time (ms)</th><th>Memory (KB)</th></tr>\n";
+
+    for (const auto& entry : fs::directory_iterator(folder_path)) {
+        if(entry.is_regular_file()) {
             string path = entry.path().string();
 
+            size_t memory_before = getMemoryKB();
             auto start = chrono::high_resolution_clock::now();
+
             int n1 = cnf_validcno(path);
             bool ans = cnf_validitychecker(path);
             int n2 = cnf_non_valid_cno(path);
+
             auto end = chrono::high_resolution_clock::now();
-            chrono::duration<double, std::milli> elapsed_ms = end - start;
+            chrono::duration<double, milli> elapsed_ms = end - start;
+            size_t memory_after = getMemoryKB();
+            size_t memory_used = (memory_after > memory_before) ? 
+                                 (memory_after - memory_before) : 
+                                 (memory_before - memory_after);
 
-            out<< path<<endl;
-            out<<endl;
-            if(ans == true) out<<"Valid" << endl;
-            else out<< "Invalid"<< endl;
-            out<< "No of valid clauses: " << n1 << endl;
-            out<< "No of invalid clauses: " << n2 <<endl;
-            out << "Time taken: " << elapsed_ms.count() << " ms" << endl;
-            out <<endl<<endl;
+            // --- Table row with color based on validity ---
+
+            string filename = fs::path(path).filename().string();
+            out << "<tr class='" << (ans ? "valid" : "invalid") << "'>";
+            out << "<td>" << filename << "</td>";
+            out << "<td>" << (ans ? "Valid" : "Invalid") << "</td>";
+            out << "<td>" << n1 << "</td>";
+            out << "<td>" << n2 << "</td>";
+            out << "<td>" << elapsed_ms.count() << "</td>";
+            out << "<td>" << memory_used << "</td>";
+            out << "</tr>\n";
         }
-
     }
-}
 
- // string path = "D:\\Projects\\ParseTree-Generator-and-CNF-validity-checker\\cnfextractedfiles\\x2_48.shuffled-as.sat03-1601.cnf";
-    // int n = cnf_validcno(path);
-    // bool ans = cnf_validitychecker(path);
-    
-    // if(ans == true) out<<"Valid" << endl;
-    // else out<< "Invalid"<< endl;
-    // out<< "No of valid clauses: " << n << endl;
-    // out<< "No of invalid clauses: " << cnf_non_valid_cno(path)<<endl;
+    // --- Close HTML ---
+    out << "</table>\n</body>\n</html>\n";
+    out.close();
+
+    cout << "HTML analysis generated: " << output_file << endl;
+    return 0;
+}
     
     
