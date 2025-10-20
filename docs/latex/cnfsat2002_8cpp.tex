@@ -10,6 +10,10 @@ CNF (Conjunctive Normal Form) SAT formula validator.
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include $<$psapi.\+h$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -19,6 +23,8 @@ int \mbox{\hyperlink{cnfsat2002_8cpp_abfb5604d9f21781c46564d438ec005ca}{cnf\+\_\
 \begin{DoxyCompactList}\small\item\em Counts the number of non-\/valid (non-\/tautology) clauses in a CNF formula. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{cnfsat2002_8cpp_acde43dfbce70dbc5c359693b978e5b54}{cnf\+\_\+validitychecker}} (string filepath)
 \begin{DoxyCompactList}\small\item\em Checks if all clauses in a CNF formula are valid (tautologies) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{cnfsat2002_8cpp_ae429db5e223718ca6d0b12213166fcab}{get\+Memory\+KB}} ()
+\begin{DoxyCompactList}\small\item\em Get the current memory usage of the running process. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{cnfsat2002_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \begin{DoxyCompactList}\small\item\em Main function to test CNF validity checker. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -119,6 +125,27 @@ This definition of "{}valid"{} is specific to this implementation and differs fr
 \begin{DoxySeeAlso}{See also}
 \doxylink{cnfsat2002_8cpp_a8954a676aa3c3af428b7265e17be4388}{cnf\+\_\+validcno()} 
 \end{DoxySeeAlso}
+\Hypertarget{cnfsat2002_8cpp_ae429db5e223718ca6d0b12213166fcab}\index{cnfsat2002.cpp@{cnfsat2002.cpp}!getMemoryKB@{getMemoryKB}}
+\index{getMemoryKB@{getMemoryKB}!cnfsat2002.cpp@{cnfsat2002.cpp}}
+\doxysubsubsection{\texorpdfstring{getMemoryKB()}{getMemoryKB()}}
+{\footnotesize\ttfamily \label{cnfsat2002_8cpp_ae429db5e223718ca6d0b12213166fcab} 
+size\+\_\+t get\+Memory\+KB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get the current memory usage of the running process. 
+
+This function uses the Windows API to retrieve the current working set size of the process (i.\+e., the amount of memory currently in RAM for the process). It returns the memory usage in kilobytes (KB).
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The current memory usage of the process in KB. Returns 0 if the memory information cannot be retrieved.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This measures the memory of the entire process, not a specific function or file. Use it to approximate memory usage changes between code sections.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Requires including \texorpdfstring{$<$}{<}windows.\+h\texorpdfstring{$>$}{>} and \texorpdfstring{$<$}{<}psapi.\+h\texorpdfstring{$>$}{>}. Also link against Psapi.\+lib if compiling in Visual Studio. 
+\end{DoxyWarning}
 \Hypertarget{cnfsat2002_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{cnfsat2002.cpp@{cnfsat2002.cpp}!main@{main}}
 \index{main@{main}!cnfsat2002.cpp@{cnfsat2002.cpp}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}

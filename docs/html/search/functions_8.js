@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['parsetree_0',['Parsetree',['../class_parsetree.html#ae18168f6f907978b7d1e8e74dedb9beb',1,'Parsetree']]],
-  ['printtree_1',['printtree',['../class_parsetree.html#a45bb4fcc002cdd67cde5fff3dd5b066c',1,'Parsetree::printtree(Treenode *node)'],['../class_parsetree.html#a998de7f69442ace8e6d681f00f0d1a43',1,'Parsetree::printtree()']]]
+  ['nnf_0',['nnf',['../class_c_n_f_converter.html#a6550b5601e148e17bccaeea6a51ac36f',1,'CNFConverter::nnf(Treenode *node)'],['../class_c_n_f_converter.html#a52298c692e61b33ad307e99ea15ee9a6',1,'CNFConverter::nnf()']]],
+  ['nonvalidclause_5fno_1',['nonvalidclause_no',['../class_c_n_f_converter.html#afbb1d71444faa12309c88774d9ae25ea',1,'CNFConverter']]]
 ];

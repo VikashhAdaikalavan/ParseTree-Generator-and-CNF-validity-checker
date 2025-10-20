@@ -113,6 +113,10 @@ $(function() {
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;unordered_set&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;windows.h&gt;</code><br />
+<code>#include &lt;psapi.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -122,6 +126,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:abfb5604d9f21781c46564d438ec005ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of non-valid (non-tautology) clauses in a CNF formula.  <br /></td></tr>
 <tr class="memitem:acde43dfbce70dbc5c359693b978e5b54" id="r_acde43dfbce70dbc5c359693b978e5b54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acde43dfbce70dbc5c359693b978e5b54">cnf_validitychecker</a> (string filepath)</td></tr>
 <tr class="memdesc:acde43dfbce70dbc5c359693b978e5b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if all clauses in a CNF formula are valid (tautologies)  <br /></td></tr>
+<tr class="memitem:ae429db5e223718ca6d0b12213166fcab" id="r_ae429db5e223718ca6d0b12213166fcab"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae429db5e223718ca6d0b12213166fcab">getMemoryKB</a> ()</td></tr>
+<tr class="memdesc:ae429db5e223718ca6d0b12213166fcab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current memory usage of the running process.  <br /></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function to test CNF validity checker.  <br /></td></tr>
 </table>
@@ -221,6 +227,29 @@ Functions</h2></td></tr>
 bool Returns false (cast from -1) if file cannot be opened</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This definition of "valid" is specific to this implementation and differs from standard SAT terminology</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#a8954a676aa3c3af428b7265e17be4388" title="Counts the number of valid clauses in a CNF formula file.">cnf_validcno()</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae429db5e223718ca6d0b12213166fcab" name="ae429db5e223718ca6d0b12213166fcab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae429db5e223718ca6d0b12213166fcab">&#9670;&#160;</a></span>getMemoryKB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t getMemoryKB </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the current memory usage of the running process. </p>
+<p>This function uses the Windows API to retrieve the current working set size of the process (i.e., the amount of memory currently in RAM for the process). It returns the memory usage in kilobytes (KB).</p>
+<dl class="section return"><dt>Returns</dt><dd>size_t The current memory usage of the process in KB. Returns 0 if the memory information cannot be retrieved.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This measures the memory of the entire process, not a specific function or file. Use it to approximate memory usage changes between code sections.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Requires including &lt;windows.h&gt; and &lt;psapi.h&gt;. Also link against Psapi.lib if compiling in Visual Studio. </dd></dl>
 
 </div>
 </div>

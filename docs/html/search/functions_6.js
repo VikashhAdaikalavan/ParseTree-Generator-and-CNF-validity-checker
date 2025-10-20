@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../cnfsat2002_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;cnfsat2002.cpp'],['../parserandcnfconverter_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;parserandcnfconverter.cpp']]]
+  ['impfree_0',['impfree',['../class_c_n_f_converter.html#a0fd50e39413894c1401ac91cfb421843',1,'CNFConverter::impfree(Treenode *node)'],['../class_c_n_f_converter.html#ae10dc27b7fd301c793d5dc8aee6a5049',1,'CNFConverter::impfree()']]],
+  ['infixtoprefix_1',['infixtoprefix',['../parserandcnfconverter_8cpp.html#a5be4a6363372599206393751e32ce912',1,'parserandcnfconverter.cpp']]]
 ];
