@@ -577,6 +577,7 @@ class CNFConverter{
     Treenode* impfree()
     {
         impfree(roottree);
+        return roottree;
     }
 
     /**
