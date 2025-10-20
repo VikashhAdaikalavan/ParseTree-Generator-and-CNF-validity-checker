@@ -1,0 +1,48 @@
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\10142772393204023fw.shuffled-as.sat03-1661.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 37225
+Time taken: 77.2698 ms
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\10142772393204023nc.shuffled-as.sat03-1662.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 33248
+Time taken: 68.9409 ms
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\10142772393204023nw.shuffled-as.sat03-1663.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 34117
+Time taken: 71.0181 ms
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\2000009987fw.shuffled-as.sat03-1664.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 12719
+Time taken: 26.6173 ms
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\2000009987nc.shuffled-as.sat03-1665.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 10886
+Time taken: 23.7298 ms
+
+
+D:\Projects\ParseTree-Generator-and-CNF-validity-checker\cnfextractedfiles\2000009987nw.shuffled-as.sat03-1666.cnf
+
+Invalid
+No of valid clauses: 0
+No of invalid clauses: 11171
+Time taken: 22.9556 ms
+
+

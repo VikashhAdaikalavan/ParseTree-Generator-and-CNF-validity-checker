@@ -14,8 +14,11 @@
 #include<string>
 #include<sstream>
 #include<unordered_set>
+#include <filesystem>
+#include <chrono>
 
 using namespace std;
+namespace fs = std::filesystem;
 
 /**
  * @brief Counts the number of valid clauses in a CNF formula file
@@ -40,7 +43,7 @@ int cnf_validcno(string filepath)
 
     if(!f.is_open())
     {
-        cout<<"File is not opened";
+        cout<<"File is not opened"<<endl;
         return -1;
     }
 
@@ -117,7 +120,7 @@ int cnf_non_valid_cno(string filepath)
 
     if(!f.is_open())
     {
-        cout<<"File is not opened";
+        cout<<"File is not opened"<<endl;
         return -1;
     }
 
@@ -164,7 +167,7 @@ bool cnf_validitychecker(string filepath)
 
     if(!f.is_open())
     {
-        cout<<"File is not opened";
+        cout<<"File is not opened"<<endl;
         return -1;
     }
 
@@ -191,23 +194,64 @@ bool cnf_validitychecker(string filepath)
     else return false;
 }
 
-/**
- * @brief Main function to test CNF validity checker
- * 
- * Reads a CNF file and outputs:
- * - Whether the formula is valid (all clauses are tautologies)
- * - Number of valid clauses
- * - Number of invalid clauses
- * 
- * @return int Program exit status (0 for success)
- */
+// /**
+//  * @brief Main function to test CNF validity checker
+//  * 
+//  * Reads a CNF file and outputs:
+//  * - Whether the formula is valid (all clauses are tautologies)
+//  * - Number of valid clauses
+//  * - Number of invalid clauses
+//  * 
+//  * @return int Program exit status (0 for success)
+//  */
 int main()
 {
-    string path = "D:\\Projects\\Logic_Assignment\\cnftest.txt";
-    int n = cnf_validcno(path);
-    bool ans = cnf_validitychecker(path);
-    if(ans == true) cout<<"Valid" << endl;
-    else cout<< "Invalid"<< endl;
-    cout<< "No of valid clauses: " << n << endl;
-    cout<< "No of invalid clauses: " << cnf_non_valid_cno(path)<<endl;
+    string folder_path = "D:\\Projects\\ParseTree-Generator-and-CNF-validity-checker\\cnfextractedfiles";
+    string output_file = "D:\\Projects\\ParseTree-Generator-and-CNF-validity-checker\\Analysis.txt";
+
+    std::ofstream out(output_file);
+    if (!out) {
+        std::cerr << "Failed to open output file!" << std::endl;
+        return -1;
+    }
+
+    int i = 0;
+
+    for (const auto& entry : fs::directory_iterator(folder_path))
+    {
+        if(i>5) break;
+        i++;
+        if(entry.is_regular_file())
+        {
+            string path = entry.path().string();
+
+            auto start = chrono::high_resolution_clock::now();
+            int n1 = cnf_validcno(path);
+            bool ans = cnf_validitychecker(path);
+            int n2 = cnf_non_valid_cno(path);
+            auto end = chrono::high_resolution_clock::now();
+            chrono::duration<double, std::milli> elapsed_ms = end - start;
+
+            out<< path<<endl;
+            out<<endl;
+            if(ans == true) out<<"Valid" << endl;
+            else out<< "Invalid"<< endl;
+            out<< "No of valid clauses: " << n1 << endl;
+            out<< "No of invalid clauses: " << n2 <<endl;
+            out << "Time taken: " << elapsed_ms.count() << " ms" << endl;
+            out <<endl<<endl;
+        }
+
+    }
 }
+
+ // string path = "D:\\Projects\\ParseTree-Generator-and-CNF-validity-checker\\cnfextractedfiles\\x2_48.shuffled-as.sat03-1601.cnf";
+    // int n = cnf_validcno(path);
+    // bool ans = cnf_validitychecker(path);
+    
+    // if(ans == true) out<<"Valid" << endl;
+    // else out<< "Invalid"<< endl;
+    // out<< "No of valid clauses: " << n << endl;
+    // out<< "No of invalid clauses: " << cnf_non_valid_cno(path)<<endl;
+    
+    
