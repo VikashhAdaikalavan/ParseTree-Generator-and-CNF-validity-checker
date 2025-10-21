@@ -26,7 +26,7 @@ bool \mbox{\hyperlink{cnfsat2002_8cpp_acde43dfbce70dbc5c359693b978e5b54}{cnf\+\_
 size\+\_\+t \mbox{\hyperlink{cnfsat2002_8cpp_ae429db5e223718ca6d0b12213166fcab}{get\+Memory\+KB}} ()
 \begin{DoxyCompactList}\small\item\em Get the current memory usage of the running process. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{cnfsat2002_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
-\begin{DoxyCompactList}\small\item\em Main function to test CNF validity checker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Entry point for CNF formula analysis and validation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -154,15 +154,54 @@ int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Main function to test CNF validity checker. 
+Entry point for CNF formula analysis and validation. 
 
-Reads a CNF file and outputs\+:
+This program iterates through all CNF files in a specified folder, applies CNF validity checking algorithms on each file, and generates an HTML report summarizing the results.
+
+Each file is analyzed for\+:
 \begin{DoxyItemize}
-\item Whether the formula is valid (all clauses are tautologies)
-\item Number of valid clauses
-\item Number of invalid clauses
+\item Validity of the CNF formula (tautological or non-\/tautological)
+\item Number of valid and invalid clauses
+\item Execution time for the algorithm
+\item Memory used during the analysis
+\end{DoxyItemize}
+
+The results are presented in an HTML table with color-\/coded rows\+:
+\begin{DoxyItemize}
+\item {\bfseries{Green}} for valid CNF formulas
+\item {\bfseries{Red}} for invalid CNF formulas
 \end{DoxyItemize}
 
 \begin{DoxyReturn}{Returns}
-int Program exit status (0 for success) 
+Returns 0 on successful execution, -\/1 if the output file cannot be opened.
 \end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{cnfsat2002_8cpp_ae429db5e223718ca6d0b12213166fcab}{get\+Memory\+KB()} 
+
+\doxylink{cnfsat2002_8cpp_a8954a676aa3c3af428b7265e17be4388}{cnf\+\_\+validcno()} 
+
+\doxylink{cnfsat2002_8cpp_abfb5604d9f21781c46564d438ec005ca}{cnf\+\_\+non\+\_\+valid\+\_\+cno()} 
+
+\doxylink{cnfsat2002_8cpp_acde43dfbce70dbc5c359693b978e5b54}{cnf\+\_\+validitychecker()}
+\end{DoxySeeAlso}
+\begin{DoxyParagraph}{Output}
+Generates an HTML file named {\bfseries{Analysis.\+html}} containing a formatted table of results.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Example Output\+:}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ File  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Result  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Clauses  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Invalid Clauses  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Time (ms)  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Memory (KB)  }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ File  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Result  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Valid Clauses  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Invalid Clauses  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Time (ms)  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Memory (KB)  }\\\cline{1-6}
+\endhead
+example.\+cnf  &Invalid  &0  &125  &45.\+2  &678  \\\cline{1-6}
+\end{longtabu}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Dependencies}
+Requires the C++17 {\ttfamily \texorpdfstring{$<$}{<}filesystem\texorpdfstring{$>$}{>}}, {\ttfamily \texorpdfstring{$<$}{<}chrono\texorpdfstring{$>$}{>}}, {\ttfamily \texorpdfstring{$<$}{<}fstream\texorpdfstring{$>$}{>}}, and {\ttfamily \texorpdfstring{$<$}{<}windows.\+h\texorpdfstring{$>$}{>}} headers. 
+\end{DoxyParagraph}

@@ -129,7 +129,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ae429db5e223718ca6d0b12213166fcab" id="r_ae429db5e223718ca6d0b12213166fcab"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae429db5e223718ca6d0b12213166fcab">getMemoryKB</a> ()</td></tr>
 <tr class="memdesc:ae429db5e223718ca6d0b12213166fcab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current memory usage of the running process.  <br /></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function to test CNF validity checker.  <br /></td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entry point for CNF formula analysis and validation.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>CNF (Conjunctive Normal Form) SAT formula validator. </p>
@@ -268,13 +268,35 @@ bool Returns false (cast from -1) if file cannot be opened</dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Main function to test CNF validity checker. </p>
-<p>Reads a CNF file and outputs:</p><ul>
-<li>Whether the formula is valid (all clauses are tautologies)</li>
-<li>Number of valid clauses</li>
-<li>Number of invalid clauses</li>
+<p>Entry point for CNF formula analysis and validation. </p>
+<p>This program iterates through all CNF files in a specified folder, applies CNF validity checking algorithms on each file, and generates an HTML report summarizing the results.</p>
+<p>Each file is analyzed for:</p><ul>
+<li>Validity of the CNF formula (tautological or non-tautological)</li>
+<li>Number of valid and invalid clauses</li>
+<li>Execution time for the algorithm</li>
+<li>Memory used during the analysis</li>
 </ul>
-<dl class="section return"><dt>Returns</dt><dd>int Program exit status (0 for success) </dd></dl>
+<p>The results are presented in an HTML table with color-coded rows:</p><ul>
+<li><b>Green</b> for valid CNF formulas</li>
+<li><b>Red</b> for invalid CNF formulas</li>
+</ul>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 on successful execution, -1 if the output file cannot be opened.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#ae429db5e223718ca6d0b12213166fcab" title="Get the current memory usage of the running process.">getMemoryKB()</a> </dd>
+<dd>
+<a class="el" href="#a8954a676aa3c3af428b7265e17be4388" title="Counts the number of valid clauses in a CNF formula file.">cnf_validcno()</a> </dd>
+<dd>
+<a class="el" href="#abfb5604d9f21781c46564d438ec005ca" title="Counts the number of non-valid (non-tautology) clauses in a CNF formula.">cnf_non_valid_cno()</a> </dd>
+<dd>
+<a class="el" href="#acde43dfbce70dbc5c359693b978e5b54" title="Checks if all clauses in a CNF formula are valid (tautologies)">cnf_validitychecker()</a></dd></dl>
+<dl class="section user"><dt>Output</dt><dd>Generates an HTML file named <b>Analysis.html</b> containing a formatted table of results.</dd></dl>
+<dl class="section user"><dt>Example Output:</dt><dd><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">File  </th><th class="markdownTableHeadNone">Result  </th><th class="markdownTableHeadNone">Valid Clauses  </th><th class="markdownTableHeadNone">Invalid Clauses  </th><th class="markdownTableHeadNone">Time (ms)  </th><th class="markdownTableHeadNone">Memory (KB)  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">example.cnf  </td><td class="markdownTableBodyNone">Invalid  </td><td class="markdownTableBodyNone">0  </td><td class="markdownTableBodyNone">125  </td><td class="markdownTableBodyNone">45.2  </td><td class="markdownTableBodyNone">678  </td></tr>
+</table>
+</dd></dl>
+<dl class="section user"><dt>Dependencies</dt><dd>Requires the C++17 <span class="tt">&lt;filesystem&gt;</span>, <span class="tt">&lt;chrono&gt;</span>, <span class="tt">&lt;fstream&gt;</span>, and <span class="tt">&lt;windows.h&gt;</span> headers. </dd></dl>
 
 </div>
 </div>

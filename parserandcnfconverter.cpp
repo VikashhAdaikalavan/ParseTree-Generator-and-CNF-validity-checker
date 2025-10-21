@@ -833,7 +833,6 @@ class CNFConverter{
         int ans = 0;
         string s = "";
         treeToString(roottree,s);
-        cout<<s;
         cout<<endl;
         string token;
         stringstream ss(s);
@@ -879,79 +878,94 @@ class CNFConverter{
     }
 };
 
-// /**
-//  * @brief Main function to test CNF conversion and validation
-//  * 
-//  * Tests a set of propositional formulas by:
-//  * 1. Parsing the infix formula
-//  * 2. Converting to CNF
-//  * 3. Checking validity (if all clauses are tautologies)
-//  * 4. Counting valid and invalid clauses
-//  * 
-//  * @return int Program exit status (0 for success)
-//  */
-
-
-// int main()
-// {
-
-//     cout<< "Enter number of formulas for test"<<endl;
-//     int n;
-//     cin >> n;
-
-//     for(int j = 0; j<n ; j++)
-//     {
-//         string i;
-//         cout<< "Enter Formula: ";
-//         cin>> i;
-//         Parsetree t(infixtoprefix(i));
-//         t.printtree();
-//         cout<< endl;
-//         CNFConverter converter(i);
-//         converter.cnf();
-//         t.printtree(converter.roottree);
-//         cout<< endl;
-//         if(converter.checkvalid()) cout << "Valid Formula";
-//         else cout << "Not Valid Formula";
-//         cout<<endl;
-//         cout<<"No of valid clause = " << converter.validclause_no()<<endl;
-//         cout<<"No of invalid clause= "<< converter.nonvalidclause_no()<<endl;
-//         cout<<endl;
-//     }
-//     return 0;
-// }
+/**
+ * @brief Entry point for Logic Formula Tester and CNF Converter/Validator.
+ *
+ * This main function allows the user to:
+ *  - Test propositional logic formulas by constructing their parse trees,
+ *    calculating their height, and generating truth tables.
+ *  - Convert logical formulas into Conjunctive Normal Form (CNF)
+ *    and validate whether the resulting CNF is tautological/valid or not.
+ *
+ * The user is prompted to select between two modes:
+ *  1. Logic Formula Tester
+ *  2. CNF Converter and Validator
+ *
+ * @note This function depends on the following components:
+ *  - Parsetree: for representing and printing logic formula trees.
+ *  - @ref valuecomputer : for calculating truth values and truth tables.
+ *  - CNFConverter: for converting formulas to CNF and checking validity.
+ */
 
 int main()
 {
-     
-    cout<< "Enter number of formulas for test"<<endl;
-    int n;
-    cin >> n;
-    for(int j = 0; j<n ; j++)
-    {
-        string i;
-        cout<< "Enter Formula: ";
-        cin>> i;
-        Parsetree t(infixtoprefix(i));
-        t.printtree();
-        cout<< endl;
-        cout<< "maxheight is: "<<t.height()<<endl;
 
-        map<char,int> mpp;
-        valuecomputer vc(t.root);
-        set <char> aset = vc.calc_no_of_atoms();
-        for(char i : aset)
+    int crlt;
+    cout<< "Enter 1 for logic formula tester  "<<endl<< "Enter 2 for CNF Converter and validator "<< endl;
+    cin >> crlt;
+
+
+
+    if(crlt == 1)
+    { 
+        cout<< "Enter number of formulas for test"<<endl;
+        int n;
+        cin >> n;
+        for(int j = 0; j<n ; j++)
         {
-            int val;
-            cout << "Enter Value(0/1) of "<< i<< ": ";
-            cin >>val;
-            mpp[i] = val;
+            string i;
+            cout<< "Enter Formula: ";
+            cin>> i;
+            Parsetree t(infixtoprefix(i));
+            t.printtree();
+            cout<< endl;
+            cout<< "maxheight is: "<<t.height()<<endl;
+
+            map<char,int> mpp;
+            valuecomputer vc(t.root);
+            set <char> aset = vc.calc_no_of_atoms();
+            for(char i : aset)
+            {
+                int val;
+                cout << "Enter Value(0/1) of "<< i<< ": ";
+                cin >>val;
+                mpp[i] = val;
+            }
+            cout << "The Truth value for the given assignment is = "<<vc.computetruth(mpp)<<endl;
+            cout<< endl;
+            cout<< "Truth Table"<<endl;
+            vc.computealltruth();
+            cout<<endl;
         }
-        cout << "The Truth value for the given assignment is = "<<vc.computetruth(mpp)<<endl;
-        cout<< endl;
-        cout<< "Truth Table"<<endl;
-        vc.computealltruth();
-        cout<<endl;
     }
-    return 0;
+    
+    if(crlt == 2)
+    {
+        cout<< "Enter number of formulas for test"<<endl;
+        int n;
+        cin >> n;
+
+        for(int j = 0; j<n ; j++)
+        {
+            string i;
+            cout<< "Enter Formula: ";
+            cin>> i;
+            Parsetree t(infixtoprefix(i));
+            t.printtree();
+            cout<< endl;
+            CNFConverter converter(i);
+            converter.cnf();
+            t.printtree(converter.roottree);
+            cout<< endl;
+            if(converter.checkvalid()) cout << "Valid Formula";
+            else cout << "Not Valid Formula";
+            cout<<endl;
+            cout<<"No of valid clause = " << converter.validclause_no()<<endl;
+            cout<<"No of invalid clause= "<< converter.nonvalidclause_no()<<endl;
+            cout<<endl;
+        }
+    }
+
+
+        return 0;
 }
